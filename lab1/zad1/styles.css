@@ -1,0 +1,98 @@
+figure.photo1{
+    float: left;
+    margin: 5px;
+    word-wrap: normal;
+    height: 500px;
+}
+img.photo1{
+    height: 100%;
+    width: 100%;
+}
+figcaption.photo1{
+    margin-left: 40%;
+}
+
+p.one{
+    background-color:aqua;
+    font-family: 'SegoeUI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: large;
+    margin-left: 36%;
+}
+p.dwa{
+    background-color: aquamarine;
+    font-weight: 900;
+    width: 200px;
+    height: 200px;
+    overflow: auto;
+    margin-bottom: 50px;
+}
+p.three{
+    background-color: brown;
+    font-style: italic;
+    font-size: xx-large;
+    overflow: scroll;
+}
+p.four{
+    background-color: bisque;
+}
+figure.photo2{
+    float: right;
+    word-wrap: normal;
+    margin: 5px;
+    width: 800px;
+    height: 500px;
+
+}
+img.photo2{
+    height: 100%;
+    width: 100%;
+}
+figcaption.photo2{
+    margin-left: 50%;
+}
+table{
+    width: 50%;
+    height: 20%;
+    margin-bottom: 15px;
+}
+
+th{
+    background-color: #279dc5;
+}
+tr.lightblue{
+    background-color: #CBE8EB;
+}
+tr.darkblue{
+    background-color: #68C3ED;
+}
+table.two{
+    width: 50%;
+    height: 15%;
+}
+.two{
+    border: 3px solid;
+    border-collapse: collapse;
+}
+th.two{
+    background-color: #795548;
+}
+
+td.two{
+    background-color: #C6BFBC;
+}
+
+img.banan{
+    position:static;
+}
+img.slon{
+    position:absolute;
+}
+img.kostka{
+
+}
+ul.europe{
+    background-color: blue;
+}
+ul.asia{
+    background-color: red;
+}
