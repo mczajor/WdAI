@@ -1,0 +1,54 @@
+.item1 > h3{
+	margin-top: 10px;
+	margin-bottom: 5px;
+	font-size: 18px;
+	text-align: center;
+}
+.item1 > ul{
+	margin-top: 0px;
+	text-align: left;
+	font-size: 15px;
+	padding-left: 25px;
+}
+.item1 {
+	border-top: solid 5px orange;
+	overflow-wrap:break-word;
+	margin: 10px;
+	text-align:left;
+	float: right;
+	width: 200px;
+	background-color: #fafa6abf;
+	padding-left: 1px;
+}
+body {
+	background-color: gainsboro;
+	color: black;
+	font-family:'Times New Roman', Times, serif;
+	font-size: 10px;
+	padding-left: 15px;
+}
+
+h1 {
+	padding-top: 3px;
+	padding-left: 20px;
+	height: 35px;
+	background-color:#14556B;
+	color: white;
+	font-size: 28px;
+	border-top: solid 2px yellow;
+	border-bottom: solid 2px yellow;
+}
+h2 {
+	margin-bottom: 0px;
+	font-size: 25px;
+	border-bottom:solid 1px #14556B;
+}
+h2.short{
+	width: 70%;
+}
+p{
+	margin-top: 0px;
+	font-size: 1.4em;
+	line-height: 110%;
+}
+
