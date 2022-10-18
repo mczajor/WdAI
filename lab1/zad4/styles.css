@@ -1,0 +1,23 @@
+.flex-container{
+    flex-flow: row wrap;
+    display: flex;
+}
+
+.flex-container > div{
+    font-size: 30px;
+    margin: 20px;
+    padding: 10px;
+}
+.red{
+    background-color: red;
+    flex-basis: 20%;
+}
+.blue{
+    background-color: lightblue;
+    flex-basis: 70%
+}
+.yellow{
+    background-color: yellow;
+    flex-basis: 94%;
+}
+

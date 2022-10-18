@@ -1,0 +1,42 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <form>
+            <label for="accnumber">Number konta:</label><br>
+            <input type="number" id="accnumber" name="accnumber" minlength="10" maxlength="10"><br>
+
+            <label for="fname">Imie:</label><br>
+            <input type="text" id="fname" name="fname"><br>
+
+            <label for="lname">Nazwisko:</label><br>
+            <input type="text" id="lname" name="lname"><br>
+
+            <label for="email">Mail:</label><br>
+            <input type="email" id="email" name="email"><br>
+
+            <label for="adress">Adres:</label><br>
+            <input type="text" id="adress" name="adress"><br>
+
+            <label for="postal">Kod pocztowy:</label><br>
+            <input type="text" id="postal" name="postal" minlength="5" maxlength="5"><br>
+
+            <label for="city">Miasto:</label><br>
+            <input list="cities" id="city" name="city"><br>
+            <datalist id="cities">
+                <option value="Warszawa">
+                <option value="Krakow">
+                <option value="Lodz">
+            </datalist>
+
+            <label for="amount">Kwota:</label><br>
+            <input type="number" id="amount" name="amount" min="1"><br>
+
+            <label for="date">Data:</label><br>
+            <input type="date" id="date" name="date" min="01.01.2000"><br>
+
+            <input type="submit">
+        </form>
+    </body>
+</html>
