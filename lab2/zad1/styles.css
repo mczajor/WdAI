@@ -1,61 +1,80 @@
-@media (max-width: 1000px){
-    .maindgrid{
-        background-color: red;
-    }
-    .rightcolumn{
-        grid-row: 95 / 150;
-        grid-column: 1 / 26;
-    }
-    .footer{
-        grid-row: 150/ 156;
-        grid-column: 1 / 101;
-    }
-    .main{
-        grid-row: 19 / 150;
-        grid-column: 26 / 101;
-    }
+body{
+    font-family:'Courier New', Courier, monospace
 }
-
 .maingrid{
-    height: 100%;
     display: grid;
-    grid-template-areas: auto;
-    background-color:azure;
-    gap: 1px;
+    height: 700px;
+    width: auto;
+    background-color: white;
+    border: 20px solid rgb(177, 172, 172);
+    grid-template-columns: 20% 35% 35% 10%;
+    grid-template-rows: 15% 10% 65% 10%;
+    grid-template-areas:
+        "head head head head"
+        "nav nav nav nav"
+        "left main main right"
+        "foot foot foot foot"
+}
+.maingrid>*{
+    border: 1px solid black;
+    padding: 10px;
+}
+header{
+    grid-area: head;
+    background-color: gray;
+}
+nav{
+    grid-area: nav;
+}
+.left{
+
+    grid-area: left;
+}
+.right{
+    grid-area: right;
+}
+main{
+    grid-area: main;
+}
+footer{
+    grid-area: foot;
+    background-color: gray;
+}
+.logo{
+    padding: 10px;
+    width: 120px;
+    height: 40px;
+    background-color: white;
+    position: relative;
+    top: 15%; left: 5%;
+}
+@media (max-width:1000px) and (min-width:601px){
+    .maingrid{
+        grid-template-columns: auto;
+        grid-template-rows:15% 10% 35% 30% 10%;
+        grid-template-areas: 
+        "head head head"
+        "nav nav nav"
+        "left main main"
+        "right main main"
+        "foot foot foot";
+    }
+}
+@media (max-width:600px){
+    .maingrid{
+        grid-template-columns: auto;
+        grid-template-rows:10% 10% 20% 20% 30% 10%;
+        grid-template-areas: 
+        "head"
+        "nav"
+        "left"
+        "right"
+        "main"
+        "foot";
+    }
+    .logo{
+        display: none;
+    }
 }
 
-.header{
-    grid-row: 1 / 12;
-    grid-column: 1 / 101;
-}
 
-.menu{
-    grid-row: 12 / 19;
-    grid-column: 1 / 101;
-}
-
-.leftcolumn{
-    grid-row: 19 / 95;
-    grid-column: 1 / 26;
-}
-
-.main{
-    grid-row: 19 / 95;
-    grid-column: 26 / 88;
-}
-.rightcolumn{
-    grid-row: 19 / 95;
-    grid-column: 88 / 101;
-}
-
-.footer{
-    grid-row: 95/ 101;
-    grid-column: 1 / 101;
-}
-
-.maingrid > div{
-    background-color:antiquewhite;
-    text-align: center;
-    font-size: 30px;
-
-}
