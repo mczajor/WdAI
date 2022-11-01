@@ -1,0 +1,84 @@
+body{
+    font-family: sans-serif;
+    font-weight: bold;
+}
+
+nav {
+    width: 230px;
+    display: flex;
+    flex: 2 1 auto;
+    flex-direction: column;
+    align-items: flex-start;
+    transition: width 1s ease-in-out;
+}
+
+nav .nav_item {
+    width: 100%;
+    margin-left: 20px;
+    height: 40px;
+    border-radius: 0 10px 10px 0;
+    margin: 3px;
+    transition: margin 1s ease-in-out;
+    background-color: aliceblue;
+}
+
+nav>div:hover{
+    background-color: rgb(3, 160, 126);
+}
+
+a{
+    text-decoration: none;
+}
+
+.button_layout{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-decoration: none;
+}
+
+.button_layout img{
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+
+.button_layout .text{
+    font-size: 15px;
+    color: rgb(22, 107, 177);
+    transition: width, color 1s linear;
+}
+
+
+.button_layout .notification-box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    color: rgb(22, 107, 177);
+    width: 20%;
+    height: 20px;;
+    margin-left: 20px;
+    border: 1px solid rgb(22, 107, 177);
+    border-radius: 10px;
+    transistion: width, 1s;
+}
+
+@media (max-width: 800px){
+    nav{
+        width: 100px;
+    }
+    nav .nav_item{
+        margin: 5px;
+    }
+    .button_layout .text{
+        color: transparent;
+        overflow:hidden;
+        width: 0;
+    }
+    .button_layout .notification-box{
+        width: 50%;
+        margin-right: 10px;
+    }
+
+}

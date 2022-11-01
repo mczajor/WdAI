@@ -1,0 +1,115 @@
+body, html{
+    height: 100%;
+    margin: 0;
+    font-family: sans-serif;
+}
+nav{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    background-color: rgb(37, 150, 190);
+    height: 2vw;
+}
+nav .logo img{
+
+}
+.arrowup {
+    width: 0; 
+    height: 0; 
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    position: absolute;
+    top: -12px;
+    left: 8%;
+    border-bottom: 15px solid white;
+  }
+
+.navigation_bar{
+    padding: 0px;
+    margin:0px;
+    display: inline-block;
+  }
+  .navigation_bar li{
+    float:left;
+    list-style:none;
+  }
+  .navigation_bar li a{
+    padding: 15px 15px;
+    display: inline-block;
+    text-decoration:none;
+    color: whitesmoke;
+  }
+  .navigation_bar li ul{
+     margin: 0;
+     padding: 0;
+     position: absolute;
+    z-index: 100;
+    display:none;
+  }
+  .navigation_bar li:hover ul{
+    display:block;
+  }
+  .navigation_bar li ul li{
+    display:block;
+    width: 100%;
+  }
+  .navigation_bar li ul li a{
+    width: 40%;
+    background-color: white;
+    color: rgb(37, 150, 190);
+  }
+  .navigation_bar li ul li a:hover{
+    border: 2px solid rgb(37, 150, 190);
+  }
+
+nav .account-nav{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.arrowright {
+    width: 0; 
+    height: 0; 
+    border-top: 6px solid transparent;
+    border-bottom: 6px solid transparent;
+    border-left: 6px solid rgb(37, 150, 190);
+    float: right;
+  }
+
+nav .account-nav > *{
+    margin: 10px;
+    border-radius: 50px;
+    width: 100px;
+    height: 80%;
+    text-align: center;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+nav .account-nav .login{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid white;
+    color: white;
+}
+
+nav .account-nav .signup{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid white;
+    background-color: white;
+    color: rgb(37, 150, 190);
+}
+
+main{
+    background: linear-gradient(rgba(37, 150, 190, 0.45), rgba(37, 150, 190, 0.45)), url(bg.jpg);
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
