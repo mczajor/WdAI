@@ -1,0 +1,118 @@
+body{
+    margin: 0;
+    font-family: sans-serif;
+}
+main .container{
+    position: relative;
+    background-color: lightskyblue;
+    height: 20em;
+}
+
+main .container::after{
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: lightskyblue;
+    transform-origin: bottom right;
+    transform: skewY(-3deg);
+    z-index: -10;
+}
+
+h1{
+    font-weight: normal;
+}
+
+main .container .text{
+    top: 15%;
+    left: 20%;
+    position: absolute;
+    width: 30%;
+    color: white;
+    animation: 1s ease-in-out 0s 1 slideInFromLeft;
+    transition-property: top, left, width;
+    transition-duration: 0.5s;
+    transition-timing-function: ease-in-out;
+}
+
+main .container .text button{
+    background-color: transparent;
+    border: 1px solid white;
+    padding: 10px 25px 10px;
+    color: inherit;
+    border-radius: 5px;
+}
+
+main .container .text_form{
+    color: gray;
+    position: absolute;
+    width: 25em;
+    top: 18%;
+    right: 15%;
+    padding: 30px;
+    border: white 1px solid;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 5px 5px 15px gray;
+    animation: 1s ease-in-out 0s 1 slideInFromRight;
+    transition-property: top, right, width;
+    transition-duration: 0.5s;
+    transition-timing-function: ease-in-out;
+
+}
+
+main .container .text_form form{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin: 10px 0 10px;
+}
+
+main .container .text_form form input{
+    border: none;
+    border-bottom: 1px solid gray;
+    padding: 10px 0 10px;
+    margin: 10px 0 10px;
+}
+main .container .text_form button{
+    background-color: lightskyblue;
+    color: white;
+    padding: 10px 25px 10px;
+    border-radius: 5px;
+    border: none;
+}
+
+
+@keyframes slideInFromLeft {
+    0% {
+        transform: translateX(-200%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInFromRight{
+    0% {
+        transform: translateX(200%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+
+@media screen and (max-width:1300px){
+    main .container .text{
+        width: 80%;
+        left: 7%;
+    }
+
+    main .container .text_form{
+        width: 50%;
+        top: 100%;
+        right:22%;
+    }
+}
