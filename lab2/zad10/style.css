@@ -39,6 +39,10 @@ main{
     transform:rotateY(180deg);
 }
 
+.card-container:hover .card-front-title{
+    z-index: -1;
+}
+
 .card-front, .card-back{
     display:flex;
     flex-direction: column;
@@ -77,6 +81,7 @@ img{
     display:flex;
     flex-direction: column;
     align-items:flex-end;
+    z-index: 1;
 }
 
 .card-front-title-text{
@@ -175,7 +180,6 @@ a{
 .card-back-book:hover{
     background: green;
     color:white;
-    letter-spacing: 3px;
     font-weight: bold;
     transition: 300ms ease;
     box-shadow: 0px 0px 20px 2px rgba(66, 68, 90, 1);

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<style>
+		div#hideable{
+			background-color: lightgreen;
+			overflow: auto;
+		}
+		div.close{
+			float: right;
+			overflow: auto;
+			width: 20px;
+		  height: 20px;
+		  border-radius: 50%;
+		  border-width: medium;
+		  border-color: black;
+		  border-style: solid;
+		}
+		div.close:hover{
+			cursor: pointer;
+		}		
+		span.close_cross{
+		  position: relative;
+		  top: -3px;
+		  left: 3px;
+			color: black;
+			font-size: 26px;
+		}
+	}
+	</style>
+</head>
+<body>
+	<div id="hideable"><p>This is some text to be hidden.</p><div class="close"><span class="close_cross">&times;</span></div></div>
+</body>
+</html>

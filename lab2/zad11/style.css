@@ -6,6 +6,7 @@ a {
     text-decoration: none;
     color: inherit;
 }
+
 .inner-menu-list{
     width: 250px;
     display: block;
@@ -15,6 +16,7 @@ a {
     list-style: none;
     text-decoration: none;
 }
+
 .inner-menu-list-item{
     border-top: 1px solid #86190f;
     overflow: hidden;
@@ -70,7 +72,6 @@ a {
 }
 .sub-menu a:hover{
     background: #273057;
-    background: -webkit-linear-gradient(top, #111838 0%, #222e68 48%, #243e85 52%, #273e7e 100%);
     background: linear-gradient(top, #111838 0%, #222e68 48%, #243e85 52%, #273e7e 100%);
     transition: all 0.3s;
     border-bottom: 1px solid #394c7f;
@@ -93,7 +94,6 @@ a {
     left: 0;
     top:0;
     opacity: 1;
-    /* background-color: #d8d824; */
     border-top: 27px solid transparent;
     border-left: 10px solid lightgreen;
     border-bottom: 27px solid transparent;

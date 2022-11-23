@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+
+    <main>
+        <div id="entries">
+            
+        </div>
+
+
+        <section>
+            <form action="#">
+                <div class="input-container">
+                    <P id="title">Imie i Nazwisko</P>
+                    <input 
+                        type="text"
+                        required="true"
+                        name="name"
+                        id="name"
+                        placeholder = ""
+                        class="normal-input"
+                        required pattern="^[A-Z]{1}[a-z]+([ ][A-Z]{1}[a-z]+){1}([-][A-Z]{1}[a-z]+)*">
+                </div>
+                <div class="input-container">
+                    <p id="title"> Telefon </p>
+                    <input 
+                            type="text"
+                            required ="true"
+                            name="phone"
+                            id="phone"
+                            placeholder = ""
+                            class="normal-input"
+                            required pattern="[0-9]{3}[ ,-]*[0-9]{3}[ ,-]*[0-9]{3}">
+                </div>
+                <div id="add">Dodaj</div>
+            </form>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

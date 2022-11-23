@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Document</title>
+</head>
+<body>
+    <main>
+
+        <div class="password_container">
+
+            <div class="inner_password_container">
+                <p>New password</p>
+                <input type="password" id="password" name="password">
+                <button id="show_password" class="show_password">
+                    <i class="fa fa-eye">
+                        <span></span>
+                    </i>
+                </button>
+            </div>
+
+            <div class="inner_password_container">
+                <p>Repeat new password</p>
+                <input type="password" id="repeat_password" name="repeat_password">
+                <button id="show_repeat_password" class="show_password">
+                    <i class="fa fa-eye">
+                        <span></span>
+                    </i>
+                </button>
+            </div>
+        </div>
+
+
+        <div id="password_requirements">
+            <div id="length" class="requirement">
+                <div id="indicator">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div> 
+                at least 8 characters
+            </div>
+
+            <div id="special_character" class="requirement">
+                <div id="indicator">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div> 
+                at least one special character
+            </div>
+
+            <div id="capital_letter" class="requirement">
+                <div id="indicator">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div> 
+                at least one capital letter
+            </div>
+
+            <div id="digit" class="requirement">
+                <div id="indicator">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div> 
+                at least one digit
+            </div>
+
+        </div>
+
+        <button id="change_password">Change Password</button>
+    </main>
+    <script src="script.js" type="text/javascript"></script>
+</body>
+</html>

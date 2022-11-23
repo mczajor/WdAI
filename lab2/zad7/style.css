@@ -90,7 +90,7 @@ main .call_options .button{
 }
 
 
-@media screen and (max-width: 1100px){
+@media screen and (max-width: 1200px){
     main .small_screen img{
         width: 300px;
         height: 250px;
@@ -99,6 +99,7 @@ main .call_options .button{
     main .big_screen .main_view{
         width: 100%;
         min-width: 1020px;
+        max-height: 1025px;
     }
     main .big_screen .main_view img{
         width: 100%;

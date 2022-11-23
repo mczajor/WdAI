@@ -104,7 +104,7 @@ main .container .text_form button{
 }
 
 
-@media screen and (max-width:1300px){
+@media screen and (max-width:1400px){
     main .container .text{
         width: 80%;
         left: 7%;

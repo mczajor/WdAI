@@ -13,12 +13,13 @@ body{
 .card{
     display: flex;
     flex-direction: column;
-    width: 15vw;
+    width: auto;
     margin: 15px;
     border-radius: 10px;
     box-shadow: 2px 2px 5px lightgray;
     padding-bottom: 10px;
 }
+
 img{
     border-radius: 10px 10px 0px 0px;
     width: 100%;
@@ -91,32 +92,21 @@ hr {
     background-repeat: no-repeat;
 }
 
-@media (max-width: 1150px){
+@media (max-width: 1400px){
     .card{
-        width: 25vw;
+        width: 400px;
     }
 }
 
-@media (max-width: 1500px) {
-    .card{
-        width: 25vw;
-    }
-}
+
 
 @media (max-width: 900px) {
     .card{
-        width: 40vw;
-    }
-}
-
-@media (max-width: 640px) {
-    .flex-container{
-        flex-direction: column;
-    }
-    .card{
-        width: auto;
+        width: 300px;
     }
     picture{
-        max-height: 40vw;
+        height: auto;
+        max-height: 200px;
+
     }
 }
