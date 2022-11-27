@@ -1,0 +1,112 @@
+body{
+    font-family: "Trebuchet MS", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", sans-serif;
+    background-color: rgb(227, 240, 255);
+}
+
+main{
+    margin: auto;
+    width: 70%;
+}
+
+.arrows *{
+    position: absolute;
+    top: 110px;
+    width: 50px;
+}
+.arrow-right{
+    right: 400px;
+}
+
+#left,
+#right {
+  position: relative;
+  padding: 5px;
+  margin: 30px auto;
+  background: rgb(119, 129, 155);
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  transition: all 0.2s linear;
+}
+
+#left:hover {
+    transform: translate(-10px, 0);
+}
+  
+#right:hover {
+    transform: translate(10px, 0);
+}
+
+#left::after,
+#right::after {
+  content: "";
+  position: absolute;
+  left: 17px;
+  z-index: 11;
+  top: 16px;
+  display: block;
+  width: 25px;
+  height: 25px;
+  border-top: 4px solid #fff;
+  border-left: 4px solid #fff;
+}
+#left::after {
+  left: 30%;
+  transform: rotate(-45deg);
+}
+
+#right::after {
+  left: 22%;
+  transform: rotate(135deg);
+}
+
+main .slide-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;  
+}
+
+main .slide-container #photo{
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    border: 6px solid white;
+    box-shadow: 5px 5px 10px gray;
+}
+main .slide-container #name{
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: rgb(75, 169, 247);
+}
+main .slide-container #position{
+    margin-top: 5px;
+    font-size: 25px;
+    font-weight: bold;
+    color: rgb(81, 105, 126);
+}
+
+main .slide-container #info{
+    width: 1200px;
+    font-size: 20px;
+    color: rgb(81, 105, 126);
+}
+
+main .slide-container button{
+    margin-top: 100px;
+    width: 200px;
+    height: 50px;
+    border-radius: 10px;
+    border: none;
+    background-color: rgb(75, 169, 247);
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 100ms linear;
+}
+
+main .slide-container button:hover{
+    color: black;
+}

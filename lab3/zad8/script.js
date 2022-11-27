@@ -1,10 +1,5 @@
 var password = document.getElementById("password");
 
-password.addEventListener("keyup", function() {
-    checkstrength(password.value);
-});
-
-
 function checkstrength(password){
     if (password.match(/[A-Z]+/)) 
         document.getElementById("capital_letter").classList.add("met");
@@ -31,30 +26,42 @@ function checkstrength(password){
         document.getElementById("length").classList.remove("met");     
 }
 
+
 function passwordvisibility(password, button){
     if (password.type === "password"){
         password.type = "text";
         button.classList.add("crossed");
+
     }else{
         password.type = "password";
         button.classList.remove("crossed");
     } 
 }
 
+
+password.addEventListener("keyup", function() {
+    checkstrength(password.value);
+});
+
+
 document.getElementById("show_password").onclick = function() {
-    passwordvisibility(document.getElementById("password"), this);
+    passwordvisibility(document.querySelector("#password"), this);
 }
+
 
 document.getElementById("show_repeat_password").onclick = function() {
-    passwordvisibility(document.getElementById("repeat_password"), this);
+    passwordvisibility(document.querySelector("#repeat_password"), this);
 }
 
+
 document.getElementById("change_password").onclick = function() {
-    var passwordreq = document.getElementById("password_requirements");
+    var passwordreq = document.querySelector("password_requirements");
+
     if (!passwordreq.children.length == passwordreq.querySelectorAll(".met").length){
         alert("Password does not meet requirements!");
         return;
     }
+
     if (document.getElementById("password").value !== document.getElementById("repeat_password").value){
         alert("Passwords do not match!");
         return;
