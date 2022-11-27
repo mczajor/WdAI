@@ -3,7 +3,7 @@ body{
     background-color: #f5f5f5;
 }
 
-.navbar {
+nav {
     display: flex;
     flex-direction: row;
     justify-content: space-between;

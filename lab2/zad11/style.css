@@ -1,5 +1,5 @@
 body{
-    background-color: lightgreen;
+    background-color: rgb(235, 235, 88);
 }
 
 a {
@@ -12,13 +12,13 @@ a {
     display: block;
     border-radius: 10px;
     overflow: hidden;
-    border: 1px solid #86190f;
+    border: 1px solid rgb(235, 235, 88);
     list-style: none;
     text-decoration: none;
 }
 
 .inner-menu-list-item{
-    border-top: 1px solid #86190f;
+    border-top: 1px solid rgb(235, 235, 88);
     overflow: hidden;
 }
 
@@ -30,8 +30,8 @@ a {
 .sub-menu-h{
     display: block;
     padding: 20px 15px;
-    background-color: #d14437;
-    color: #fff;
+    background-color: rgb(244, 151, 165);
+    color: white;
     position: relative;
 
 }
@@ -46,35 +46,36 @@ a {
     z-index: 1;
     border-left: 6px solid transparent;
     border-right:6px solid transparent;
-    border-top:12px solid #d14437;
+    border-top:12px solid rgb(244, 151, 165);
     
 }
 
 .sub-menu{
-    background: #152774;
-    overflow: hidden;
+    background: rgb(21, 39, 116);
     max-height:0em;
     transition: 500ms ease all;
 }
 .sub-menu a{
+    position: relative;
     display: block;
     padding: 20px 15px;
-    color: #fff;
+    color: white;
     font-size: 16px;
-    border-bottom: 1px solid #13224b;
-    position: relative;
-    
+    border-bottom: 1px solid rgb(19, 34, 75);
 }
+
 .sub-menu a::before{
     content: '';
     opacity: 0;
     transition: opacity 300ms ease;
 }
+
 .sub-menu a:hover{
-    background: #273057;
+    background: rgb(39, 48, 87);
+    background: -webkit-linear-gradient(top,#222e68 50%, #243e85 50%, #273e7e 100%);
     background: linear-gradient(top, #111838 0%, #222e68 48%, #243e85 52%, #273e7e 100%);
-    transition: all 0.3s;
-    border-bottom: 1px solid #394c7f;
+    transition: all 300ms;
+    border-bottom: 1px solid rgb(57, 76, 127);
 }
 
 .sub-menu a:hover::after{
@@ -90,13 +91,15 @@ a {
 .sub-menu a:hover::before{
     content: '';
     position: absolute;
+    width: 225px;
     height: 0;
     left: 0;
     top:0;
     opacity: 1;
     border-top: 27px solid transparent;
-    border-left: 10px solid lightgreen;
+    border-left: 13px solid rgb(235, 235, 88);
     border-bottom: 27px solid transparent;
+    border-right: 13px solid rgb(235, 235, 88);
 }
 .sub-menu a::after{
     content: '';

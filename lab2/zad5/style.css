@@ -19,7 +19,7 @@ nav .nav_item {
     border-radius: 0 10px 10px 0;
     margin: 3px;
     transition: margin 300ms ease-in-out;
-    background-color: aliceblue;
+    background-color: rgb(192, 223, 251);
 }
 
 a{
@@ -42,7 +42,7 @@ a{
 .button_layout .button_text{
     font-size: 15px;
     color: rgb(22, 107, 177);
-    transition: width, color 1s linear;
+    transition: all 500ms linear;
 }
 
 .button_layout .notification_box{
@@ -64,11 +64,10 @@ nav .nav_item:hover .button_layout .notification_box{
 }
 
 nav> .nav_item:hover{
-    background-color: rgb(3, 160, 126);
+    background-color: rgb(4, 160, 126);
 }
 
 @media (max-width: 800px){
-
     nav{
         width: 80px;
     }
@@ -85,6 +84,9 @@ nav> .nav_item:hover{
         color: transparent;
         overflow: hidden;
         width: 0;
+    }
+    .button_layout .notification_box{
+        margin-left: 10px;
     }
 
 
