@@ -1,51 +1,29 @@
-async function getData(){
-    var res = await fetch("employees.json");
-    var json = await res.json();
-    return json;
+var prev = document.getElementById("left");
+var next = document.getElementById("right");
+var container = document.querySelector(".slide-container");
+var random = document.getElementById("random");
+var currId = 0;
+
+prev.addEventListener('click', function(){
+    currId--;
+    changeSlide();
+});
+next.addEventListener('click', function(){
+    currId++;
+    changeSlide();
+});
+
+random.addEventListener('click', function(){
+    currId = Math.floor(Math.random() * container.children.length-1);
+    changeSlide();
+});
+
+function changeSlide(){
+    if(currId < 0){
+        currId = container.children.length-1;
+    } else if(currId > container.children.length-1){
+        currId = 0;
+    }
+    var transformValue = 300 - (currId * 1700);
+    container.style.transform = "translate3d(" + transformValue + "px, 0, 0)";
 }
-
-function loadCard(id, data){
-    var elName = document.getElementById("name");
-    var elPos = document.getElementById("position");
-    var elDesc = document.getElementById("info");
-    var elImg = document.getElementById("photo");
-
-    var name = data[id].name;
-    var pos = data[id].jobTitle;
-    var desc = data[id].description;
-    var img = data[id].img;
-
-    elName.textContent = name;
-    elPos.textContent = pos;
-    elDesc.textContent = desc;
-    elImg.srcset = "photos/" + img;
-
-
-}
-var data;
-var id = 0;
-
-async function loadData(){
-    var data = await getData();
-    data = data.employees;
-    loadCard(0,data);
-    document.getElementById("left").addEventListener('click', function() {
-        id--;
-        if(id<0) 
-            id = data.length-1;
-
-        loadCard(id%data.length, data);
-    } )
-    
-    document.getElementById("right").addEventListener('click', function() {
-        id++;
-        loadCard(id%data.length, data);
-    } )
-
-    document.getElementById("random").addEventListener('click', function() {
-        id = Math.round(Math.random()*data.length);
-        loadCard(id%data.length,data);
-    })
-}
-
-loadData();
