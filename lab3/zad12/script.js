@@ -131,10 +131,50 @@ function cmpFn(a,b){
 
 // <--- ASYNC FUNCTIONS --->
 async function highscoresPrompt(){
-    window.removeEventListener("mousemove", followCursor)
-    document.body.style.cursor="default";
+    window.removeEventListener("mousemove", followCursor);
     hsBoxElement.style.transform = "translateY(0%)";
+    var data = await fetch("");
+    var json = await data.json();
+    updateHighscores(json);
     document.getElementById("restart").addEventListener("click",restartGame);
+}
+async function updateHighscores(json){
+
+    var today = new Date();
+    var dd = String(today.getDate()).padStart(2, '0');
+    var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+    var yyyy = today.getFullYear();
+    today = dd + '/' + mm + '/' + yyyy;
+
+    data = json["highscores"];
+    data.push({"name": userName,"score":score, "date":today});
+    data = data.sort(cmpFn);
+    var entries = document.querySelectorAll("#hs-list>li");
+    for (var i = 0; i < entries.length; i++) {
+        entries[i].remove();
+    }
+    var hsList = document.querySelector("#hs-list");
+    for (var i = 0; i < data.length; i++){
+        if (i==7)
+            break;
+        var entry = document.createElement("li");
+        entry.textContent = data[i]["name"] + ", pkt: " + data[i]["score"] + ', data: ' + data[i]["date"];
+        hsList.appendChild(entry);
+    }
+    await sendScore("", json);
+}
+
+async function sendScore(url = '', data = {}) {
+    const response = await fetch(url, {
+      method: 'PUT', 
+      mode: 'cors', 
+      cache: 'no-cache', 
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
+    });
+    return response.json();
 }
 
 var zId = 0;
