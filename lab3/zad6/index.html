@@ -26,7 +26,7 @@
                         id="name"
                         placeholder = ""
                         class="normal-input"
-                        required pattern="^[A-Z]{1}[a-z]+([ ][A-Z]{1}[a-z]+){1}([-][A-Z]{1}[a-z]+)*">
+                        required pattern="^\p{Lu}\p{Ll}+( \p{Lu}\p{Ll}+)(([-, ]\p{Lu}\p{Ll}+)*)$">
                 </div>
                 <div class="input-container">
                     <p id="title"> Telefon </p>

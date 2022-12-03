@@ -27,7 +27,6 @@ function getPosition(element){
 }
 
 function displayMessage(){
-    console.log("body clicked");
     var message = document.querySelector("#message");
     if(clicked){
         message.textContent = "";
