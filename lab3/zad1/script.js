@@ -1,9 +1,9 @@
 document.getElementById("btn").onclick = function(){
-    var imie = prompt("Twoje imie:");
+    var name = prompt("Twoje imie:");
     var last;
     var mr;
-    if (imie[imie.length-1]=='a'){
-        imie= imie.substring(0, imie.length - 1);
+    if (name[name.length-1]=='a'){
+        name= name.substring(0, imie.length - 1);
         last = 'e';
         mr = 'ią '
     }
@@ -12,6 +12,6 @@ document.getElementById("btn").onclick = function(){
         last = 'a';
         mr = 'a '
     }
-    greetingContent = 'Witam pan' + mr + imie + last;
+    greetingContent = 'Witam pan' + mr + name + last;
     document.getElementById("greeting").textContent = greetingContent;
 }

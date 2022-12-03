@@ -259,7 +259,7 @@ p#title2{
         "foot"
     }
     .site-sidebar{
-        width:95%;
+        width:97.5%;
         height:fit-content;
         flex-direction: row;
         position:fixed;
@@ -271,6 +271,10 @@ p#title2{
 
     .article-container{
         height:500px;
+    }
+    .article-background{
+        width: 80%;
+        margin-left:30px;
     }
 
     p#title{

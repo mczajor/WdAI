@@ -1,7 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 
 body{
-    font-family: 'Montserrat', sans-serif;
+    font-family: sans-serif;
     margin-top:3%;
     margin-left:8%;
     margin-right:8%;
@@ -13,15 +12,17 @@ main{
     display:flex;
     flex-direction: row;
     justify-content: space-evenly;
-    flex-wrap:wrap;
+    flex-wrap: wrap;
 }
 
 .card-container{
     height:550px;
+    min-width: 300px;
     flex-basis:25%;
     perspective: 1000px;
-    margin-right:20px;
-    margin-left:20px;
+    margin-right:50px;
+    margin-left:50px;
+    margin-bottom: 50px;
 }
 
 .card-inside{
@@ -30,7 +31,7 @@ main{
     height: 100%;
     border-radius:6px;
     box-shadow: 0px 0px 38px -11px gray;
-    transition: transform 0.8s;
+    transition: transform 0.5s;
     transform-style: preserve-3d;
     background-color:white;
 }
