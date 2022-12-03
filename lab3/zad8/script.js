@@ -54,16 +54,18 @@ document.getElementById("show_repeat_password").onclick = function() {
 }
 
 
-document.getElementById("change_password").onclick = function() {
-    var passwordreq = document.querySelector("password_requirements");
+document.addEventListener('keypress' ,function(event) {
+    if (event.key === "Enter") {
+        var passwordreq = document.querySelector("#password_requirements");
 
-    if (!passwordreq.children.length == passwordreq.querySelectorAll(".met").length){
-        alert("Password does not meet requirements!");
-        return;
-    }
+        if (!passwordreq.children.length == passwordreq.querySelectorAll(".met").length){
+            alert("Password does not meet requirements!");
+            return;
+        }
 
-    if (document.getElementById("password").value !== document.getElementById("repeat_password").value){
-        alert("Passwords do not match!");
-        return;
+        if (document.getElementById("password").value !== document.getElementById("repeat_password").value){
+            alert("Passwords do not match!");
+            return;
+        }
     }
-}
+});

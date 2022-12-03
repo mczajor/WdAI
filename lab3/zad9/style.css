@@ -15,7 +15,10 @@ main{
 }
 
 #right{
-    right: 400px;
+    right: 10%;
+}
+#left{
+    left: 10%;
 }
 
 #left,
@@ -59,7 +62,7 @@ main{
 
 main h1{
     text-align: center;
-    margin: 50px auto;
+    margin-right: 300px;
     font-size: 50px;
 }
 
@@ -67,7 +70,7 @@ main .slide-container{
     display: flex;
     flex-wrap: nowrap;
     flex-direction: row;
-    transform: translate3d(300px,0,0);
+    transform: translate3d(-370%,0,0);
     transition: transform 300ms ease-in-out;
 }
 
@@ -106,7 +109,7 @@ main .slide-container #slide #info{
 }
 
 #random{
-    margin-left: 800px;
+    margin-left: 650px;
     margin-top: 100px;
     width: 200px;
     height: 50px;

@@ -26,7 +26,7 @@ function getPosition(element){
     return {x: xPosition, y: yPosition};
 }
 
-function displayMessage(){
+function displayMessage(e){
     var message = document.querySelector("#message");
     if(clicked){
         message.textContent = "";
@@ -34,5 +34,8 @@ function displayMessage(){
         return;
     } else {
         message.textContent = "Naciśnij wewnątrz pudełka";
+        message.style.top = e.clientY - 50 + "px";
+        message.style.left = e.clientX - 100 + "px";
+        
     }
 }

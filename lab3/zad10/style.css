@@ -44,6 +44,8 @@ body{
 }
 
 #message{
+    width: 200px;
+    position:absolute;
     color:black;
     font-size:30px;
     font-weight:500;
