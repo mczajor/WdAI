@@ -134,7 +134,7 @@ async function highscoresPrompt(){
     window.removeEventListener("mousemove", followCursor);
     hsBoxElement.style.transform = "translateY(0%)";
     var data = await fetch("");
-    var json = await data.json();
+    var json = await data.json("https://jsonblob.com/api/jsonBlob/1048618922164895744");
     updateHighscores(json);
     document.getElementById("restart").addEventListener("click",restartGame);
 }
@@ -174,7 +174,7 @@ async function sendScore(url = '', data = {}) {
       },
       body: JSON.stringify(data)
     });
-    return response.json();
+    return response.json("https://jsonblob.com/api/jsonBlob/1048618922164895744");
 }
 
 var zId = 0;
