@@ -1,4 +1,5 @@
-const SPAWNCHANCE = 40;
+//Game constants
+const SPAWNCHANCE = 20;
 const SHOTPENALTY = 6;
 const ZOOMBIEKILLREWARD = 12;
 
@@ -128,10 +129,10 @@ function cmpFn(a,b){
 async function highscoresPrompt(){
     window.removeEventListener("mousemove", followCursor);
     hsBoxElement.style.transform = "translateY(0%)";
-    var data = await fetch("https://jsonblob.com/api/jsonBlob/1048618922164895744");
-    var json = await data.json();
-    updateHighscores(json);
     document.getElementById("restart").addEventListener("click",restartGame);
+    var data = await fetch('https://jsonblob.com/api/jsonBlob/1048618922164895744');
+    //var json = await data.json();
+    //updateHighscores(json);
 }
 async function updateHighscores(json){
 
