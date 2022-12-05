@@ -1,9 +1,9 @@
-//Game constants
 const SPAWNCHANCE = 40;
 const SHOTPENALTY = 6;
 const ZOOMBIEKILLREWARD = 12;
 
-// <--- zoombie FUNCTIONS --->
+
+
 function moveZoombie(zoombieElement, interval){
     const offset = 200; //start position for the image slicer
     var currBackgroundPos = 200;
@@ -39,10 +39,9 @@ function spawnZoombie(){
     zId++;
     moveZoombie(zoombieElement, interval);
 }
-// <--- ZOMBIE FUNCTIONS END --->
 
 
-// <--- UPDATERS --->
+
 function updateScore(){
     scoreElement.textContent="Score:" + score;
 }
@@ -52,10 +51,8 @@ function updateHealth(){
     if(health <= 0)
         endGame();
 }
-// <--- UPDATERS END --->
 
 
-// <--- HANDLERS --->
 function boardShot(){
     score -= SHOTPENALTY;
     updateScore();
@@ -81,9 +78,9 @@ function followCursor(e){
     mouseCursor.style.top = e.clientY + "px";
     mouseCursor.style.left = e.clientX + "px";
 }
-// <--- HANDLERS END--->
 
-// <--- GAME --->
+
+
 function endGame(){
     clearInterval(gameRunning);
     Object.keys(zoombieRunTime).forEach(function(key) {
@@ -121,20 +118,18 @@ function loadPage(){
         startGame();
         });
 }
-// <--- GAME END--->
 
-// <--- UTILITY --->
+
 function cmpFn(a,b){
     return b["score"] - a["score"];
 }
-// <--- UTILITY END--->
 
-// <--- ASYNC FUNCTIONS --->
+
 async function highscoresPrompt(){
     window.removeEventListener("mousemove", followCursor);
     hsBoxElement.style.transform = "translateY(0%)";
-    var data = await fetch("");
-    var json = await data.json("https://jsonblob.com/api/jsonBlob/1048618922164895744");
+    var data = await fetch("https://jsonblob.com/api/jsonBlob/1048618922164895744");
+    var json = await data.json();
     updateHighscores(json);
     document.getElementById("restart").addEventListener("click",restartGame);
 }
@@ -161,7 +156,7 @@ async function updateHighscores(json){
         entry.textContent = data[i]["name"] + ", pkt: " + data[i]["score"] + ', data: ' + data[i]["date"];
         hsList.appendChild(entry);
     }
-    await sendScore("", json);
+    await sendScore("https://jsonblob.com/api/jsonBlob/1048618922164895744", json);
 }
 
 async function sendScore(url = '', data = {}) {
@@ -190,7 +185,6 @@ const healthElement = document.querySelector("#health");
 const menuElement = document.querySelector("#usernameprompt-container");
 const hsBoxElement = document.querySelector("#hs-container");
 const mouseCursor = document.querySelector("#customcursor");
-// <--- GAME VARIABLES END --->
 
-// <--- START GAME --->
+
 loadPage();

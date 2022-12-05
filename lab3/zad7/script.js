@@ -10,9 +10,7 @@ function answerA(data){
         return m.province === "małopolskie";
     });
     var cities = "";
-    for(var city in filteredData){
-        cities += filteredData[city].name + ", ";
-    }
+    filteredData.forEach(element => cities += element.name + ", ");
     cities = cities.substr(0, cities.length - 2);
     cities = cities + "."
     document.getElementById("answerA").textContent = cities;
@@ -37,9 +35,7 @@ function answerB(data){
         return atLeastTwoAs(m.name);
     });
     var cities = "";
-    for(var city in filteredData){
-        cities += filteredData[city].name + ", ";
-    }
+    filteredData.forEach(element => cities += element.name + ", ");
     cities = cities.substr(0, cities.length - 2);
     cities = cities + "."
     document.getElementById("answerB").textContent = cities;
@@ -47,9 +43,7 @@ function answerB(data){
 
 function answerC(data){
     var populationDensity = new Array;
-    for(var city in data){
-        populationDensity.push([data[city].name, data[city].people / data[city].area]);
-    }
+    data.forEach(city => populationDensity.push([city.name, city.people / city.area]));
     populationDensity.sort(function(a, b){
         return b[1] - a[1];
     });
@@ -61,9 +55,7 @@ function answerD(data){
         return m.people > 100000;
     });
     var cities = "";
-    for(var city in filteredData){
-        cities += filteredData[city].name + " city, ";
-    }
+    filteredData.forEach(element => cities += element.name + " city, ");
     cities = cities.substr(0, cities.length - 2);
     cities = cities + "."
     document.getElementById("answerD").textContent = cities;
@@ -73,13 +65,13 @@ function answerD(data){
 function answerE(data){
     var lessThan8000People = 0;
     var moreThan8000People = 0;
-    for(var city in data){
-        if(data[city].people < 8000){
+    data.forEach(element => {
+        if(element.people < 8000){
             lessThan8000People++;
         } else {
             moreThan8000People++;
         }
-    }
+    });
     if (lessThan8000People > moreThan8000People){
         document.getElementById("answerE").textContent = "Jest wiecej miast z mniej niz 8000 mieszkancow. A dokladnie: " + lessThan8000People + " miast.";
     } else {
@@ -93,10 +85,10 @@ function answerF(data){
     });
     var sum = 0;
     var count = 0;
-    for(var city in filteredData){
-        sum += filteredData[city].people;
+    filteredData.forEach(element => {
+        sum += element.people;
         count++;
-    }
+    });
     document.getElementById("answerF").textContent = "Srednia liczba mieszkancow miast z powiatow zaczynajacych sie na P wynosi: " + sum / count;
 }
 
@@ -106,7 +98,7 @@ function answerG(data){
     });
     for(var city in filteredData){
         if(filteredData[city].people<5000){
-            document.getElementById("answerG").textContent = "W wojewodztwie pomorskim jest miasto z mniej niz 5000 mieszkancow: " + filteredData[city].name + ".";
+            document.getElementById("answerG").textContent = "W wojewodztwie pomorskim jest conajmniej jedno miasto z mniej niz 5000 mieszkancow: " + filteredData[city].name + ".";
             return;
         }
     }
