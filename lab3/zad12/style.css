@@ -145,7 +145,7 @@ button:hover {
   width: 200px;
   height: 312px;
   background: url(images/walkingdead.png) 0px 0px;
-  transition: left 100ms linear;
+  transition: left 50ms linear;
 }
 
 @media screen and (max-width: 700px) {
