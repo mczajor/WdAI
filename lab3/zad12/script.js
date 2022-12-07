@@ -1,14 +1,11 @@
-<<<<<<< HEAD
 //Game constants
-=======
->>>>>>> 51f6531804616a8c1dd491a3c0eb900bae1812e8
 const SPAWNCHANCE = 20;
 const SHOTPENALTY = 6;
 const ZOOMBIEKILLREWARD = 12;
 
 const zoombieRunTime = {};
-const url = "https://jsonblob.com/api/jsonBlob/1048618922164895744";
 
+const jsonurl = "https://jsonblob.com/api/jsonBlob/1048618922164895744";
 const board = document.querySelector("#board");
 const scoreElement = document.querySelector("#score");
 const healthElement = document.querySelector("#health");
@@ -57,7 +54,7 @@ function spawnZoombie(){
 
 
 function updateScore(){
-    scoreElement.textContent=("Score:" + score).padStart(2, "0");
+    scoreElement.textContent="Score:" + score;
 }
 
 function updateHealth(){
@@ -124,8 +121,8 @@ function loadPage(){
     document.getElementById("startgame").addEventListener("click",function(){
         var form = document.getElementById("username");
         if(!form.checkValidity()){
-        document.getElementById("username-warning").textContent = "Please enter a username";
-        return;
+            document.getElementById("username-warning").textContent = "Please enter a username";
+            return;
         }
         menuElement.style.transform = "translateY(-1000%)";
         userName = form.value;
@@ -143,16 +140,10 @@ async function highscoresPrompt(){
     window.removeEventListener("mousemove", followCursor);
     document.body.style.cursor="auto";
     hsBoxElement.style.transform = "translateY(0%)";
-<<<<<<< HEAD
-=======
-    var data = await fetch(url);
+    document.getElementById("restart").addEventListener("click",restartGame);
+    var data = await fetch(jsonurl);
     var json = await data.json();
     updateHighscores(json);
->>>>>>> 51f6531804616a8c1dd491a3c0eb900bae1812e8
-    document.getElementById("restart").addEventListener("click",restartGame);
-    var data = await fetch('https://jsonblob.com/api/jsonBlob/1048618922164895744');
-    //var json = await data.json();
-    //updateHighscores(json);
 }
 async function updateHighscores(json){
 
@@ -174,13 +165,13 @@ async function updateHighscores(json){
         if (i==7)
             break;
         var entry = document.createElement("li");
-        entry.textContent = data[i]["name"] + ", pkt: " + data[i]["score"] + ', data: ' + data[i]["date"];
+        entry.textContent = data[i]["name"]+ " pkt: " + data[i]["score"] + '     ' + data[i]["date"];
         hsList.appendChild(entry);
     }
     await sendScore(json);
 }
 
-async function sendScore(data = {}) {
+async function sendScore(json = {}) {
     const response = await fetch(url, {
       method: 'PUT', 
       mode: 'cors', 
@@ -188,7 +179,7 @@ async function sendScore(data = {}) {
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify(data)
+      body: JSON.stringify(json)
     });
     return response.json(url);
 }
