@@ -8,31 +8,38 @@
     <title>Document</title>
 </head>
 <body>
-    <nav>
-        <div>Name</div>
-        <div>Capital</div>
-        <div>Population</div>
-        <div>Area</div>
-    </nav>
-    <button type="button" class="collapsible">
-        <div id="subregion">
-            <div id="name"></div>
-            <div id="capital"></div>
-            <div id="population"></div>
-            <div id="area"></div>
-        </div>
-    </button>
-    <div class="content">   
-        <div class="country">
-            <div id="name">Polska gurom</div>
-            <div id="capital">laksdjfla</div>
-            <div id="population">1</div>
-            <div id="area">inf</div>
-        </div>
+    <div class="filters">
+        <input type="text" id="nameFilter" placeholder="Name">
+        <input type="text" id="capitalFilter" placeholder="Capital">
+        <input type="number" id="populationFilter" placeholder="MinPopulation">
+        <input type="number" id="areaFilter" placeholder="MinArea">
+        <input type="text" id="pagesFilter" placeholder="elementsPerPage">
+        <button id="Filter">Filter</button>
     </div>
-    <button type="button" class="collapsible">Open Collapsible</button>
-    <div class="content">
-        <div class="country">Chuj</div>
+    <hr>
+    <div class="categories">
+        <div class="nameCategory">Name</div>
+        <div class="capitalCategory">Capital</div>
+        <div class="populationCategory">Population</div>
+        <div class="areaCategory">Area</div>
+    </div>
+    <div class="subregion-container" id="test">
+        <button type="button" class="collapsible">
+            <div id="subregion">
+                <div id="name"></div>
+                <div id="capital"></div>
+                <div id="population"></div>
+                <div id="area"></div>
+            </div>
+        </button>
+        <div class="content">   
+            <div class="country">
+                <div id="name">Polska gurom</div>
+                <div id="capital">laksdjfla</div>
+                <div id="population">1</div>
+                <div id="area">inf</div>
+            </div>
+        </div>
     </div>
     <script src="script.js"></script>
 </body>
