@@ -13,6 +13,9 @@ body{
     flex-direction:row;
     justify-content:space-around;
 }
+.categories *{
+    cursor:pointer;
+}
 
  /* Style the button that is used to open and close the collapsible content */
 .collapsible {

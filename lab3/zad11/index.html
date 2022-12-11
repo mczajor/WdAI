@@ -9,12 +9,12 @@
 </head>
 <body>
     <div class="filters">
-        <input type="text" id="nameFilter" placeholder="Name">
-        <input type="text" id="capitalFilter" placeholder="Capital">
-        <input type="number" id="populationFilter" placeholder="MinPopulation">
-        <input type="number" id="areaFilter" placeholder="MinArea">
-        <input type="text" id="pagesFilter" placeholder="elementsPerPage">
-        <button id="Filter">Filter</button>
+        <input type="text" id="namefilter" value="" placeholder="Name">
+        <input type="text" id="capitalfilter" value="" placeholder="Capital">
+        <input type="number" id="populationfilter" value="0" placeholder="MinPopulation">
+        <input type="number" id="areafilter" value="0" placeholder="MinArea">
+        <input type="number" id="pagesFilter" placeholder="elementsPerPage">
+        <button id="filter-button">Filter</button>
     </div>
     <hr>
     <div class="categories">
@@ -27,7 +27,6 @@
         <button type="button" class="collapsible">
             <div id="subregion">
                 <div id="name"></div>
-                <div id="capital"></div>
                 <div id="population"></div>
                 <div id="area"></div>
             </div>
@@ -41,6 +40,6 @@
             </div>
         </div>
     </div>
-    <script src="script.js"></script>
 </body>
+    <script src="script.js"></script>
 </html>

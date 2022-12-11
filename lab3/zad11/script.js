@@ -1,42 +1,29 @@
-function sortByName(data){
-  data.sort(function(a, b){
-    if(a.name.common < b.name.common) { return -1; }
-    if(a.name.common > b.name.common) { return 1; }
+function sortNumbersByKey(array, key, order){
+  array.sort((a,b) => {
+    if(a[key] < b[key]) return 1*order;
+    if(a[key] > b[key]) return -1*order;
     return 0;
   });
-  return data;
 }
 
-function sortByPopulation(data){
-  data.sort(function(a, b){
-    if(a.population < b.population) { return -1; }
-    if(a.population > b.population) { return 1; }
-    return 0;
+function sortWordsByKey(array, key, order){
+  array.sort((a,b) => {
+    return a[key].localeCompare(b[key])*order;
   });
-  return data;
 }
 
-function sortByArea(data){
-  data.sort(function(a, b){
-    if(a.area < b.area) { return -1; }
-    if(a.area > b.area) { return 1; }
-    return 0;
-  });
-  return data;
+
+function sortByKey(array, key, order){
+  if(key == 'name' || key == 'capital'){
+    sortWordsByKey(array, key, order);
+  } else{
+    sortNumbersByKey(array, key, order);
+  }
 }
 
-function sortByCapitalName(data){
-  data.sort(function(a, b){
-    if(a.capital < b.capital) { return -1; }
-    if(a.capital > b.capital) { return 1; }
-    return 0;
-  });
-  return data;
-}
 
 function makeCollapsible(){
   var coll = document.getElementsByClassName("collapsible");
-
   for (var i = 0; i < coll.length; i++) {
     coll[i].addEventListener("click", function() {
       this.classList.toggle("active");
@@ -50,60 +37,70 @@ function makeCollapsible(){
   }
 }
 
-function addSubs2Doc(subregions){
-  
-  var container = document.createElement("div");
-  container.className = "subregion-container";
-  container.id = subregion;
-
-  var collapsible = document.createElement("button");
-  collapsible.className = "collapsible";
-  collapsible.type = "button";
-
-  var contentElem = document.createElement("div");
-  contentElem.className = "content";
-
-  var subregionElem = document.createElement("div");
-  subregionElem.id = "subregion";
-
-  var name = document.createElement("div");
-  name.id = "name";
-  name.textContent = subregion;
-
-  var population = document.createElement("div");
-  population.id = "population";
-  population.textContent = "0";
-
-  var area = document.createElement("div");
-  area.id = "area";
-  area.textContent = "0";
-
-  subregionElem.appendChild(name);
-  subregionElem.appendChild(population);
-  subregionElem.appendChild(area);
-  collapsible.appendChild(subregionElem);
-
-  container.appendChild(collapsible);
-  container.appendChild(contentElem);
-
-  document.body.appendChild(container);
+function updateSubregions(population, area){
+  subregions.forEach(subregion => {
+    var population = subregionContainer.querySelector("#population");
+    var area = subregionContainer.querySelector("#area");
+    population.textContent = subregion.population;
+    area.textContent = subregion.area;
+  });
 }
 
+function addSubs2Doc(subregions){
+  document.querySelectorAll(".subregion-container").forEach(container => container.remove());
+  subregions.forEach(subregion => {
+    //console.log(subregion);
+    var container = document.createElement("div");
+    container.className = "subregion-container";
+    container.id = subregion.name;
 
+    var collapsible = document.createElement("button");
+    collapsible.className = "collapsible";
+    collapsible.type = "button";
 
-function addCountryToSubregion(data){
-  data.forEach(country => {
-    var subregionContainer = document.getElementById(country.subregion);
-    var subregionCollapsible = subregionContainer.querySelector("#subregion");
-    subregionCollapsible.querySelector("#population").textContent = parseInt(subregionCollapsible.querySelector("#population").textContent) + country.population;
-    subregionCollapsible.querySelector("#area").textContent = parseInt(subregionCollapsible.querySelector("#area").textContent) + country.area;
+    var contentElem = document.createElement("div");
+    contentElem.className = "content";
+
+    var subregionElem = document.createElement("div");
+    subregionElem.id = "subregion";
+
+    var name = document.createElement("div");
+    name.id = "name";
+    name.textContent = subregion.name;
+
+    var population = document.createElement("div");
+    population.id = "population";
+    population.textContent = subregion.population;
+
+    var area = document.createElement("div");
+    area.id = "area";
+    area.textContent = subregion["area"];
+
+    subregionElem.appendChild(name);
+    subregionElem.appendChild(population);
+    subregionElem.appendChild(area);
+    collapsible.appendChild(subregionElem);
+
+    container.appendChild(collapsible);
+    container.appendChild(contentElem);
+
+    document.body.appendChild(container);
+
+  });
+}
+
+function addCountryToSubregion(subregion, countries){
+  var subregionContainer = document.getElementById(subregion);
+  subregionContainer.querySelectorAll(".country").forEach(country => country.remove());
+  countries.forEach(country => {
+    
     var content = subregionContainer.querySelector(".content");
     var countryElem = document.createElement("div");
     countryElem.className = "country";
 
     var nameElem = document.createElement("div");
     nameElem.id = "name";
-    nameElem.textContent = country.name.common;
+    nameElem.textContent = country.name;
 
     var capitalElem = document.createElement("div");
     capitalElem.id = "capital";
@@ -123,40 +120,118 @@ function addCountryToSubregion(data){
     countryElem.appendChild(areaElem);
 
     content.appendChild(countryElem);
+    content.appendChild(document.createElement("hr"));
 });
 }
 
 
-async function loadJSON() {
+async function loadData() {
   const response = await fetch('https://restcountries.com/v3.1/all');
   const data = await response.json();
-  return data;
-}
-
-async function loadPage(data){
-  data = await loadJSON();
-  //console.log(data);
   data.forEach(country => {
-    if(!(country.subregion in subregions)){
-      subregions[country.subregion] = {TotalPopulation: 0, 
-        TotalArea: 0, 
-        Countries: []};
-    }
-    subregions[country.subregion]["TotalPopulation"] += country.population;
-    subregions[country.subregion]["TotalArea"] += country.area;
-    subregions[country.subregion]["Countries"].push({name: country.name.common, 
-      capital: country.capital, 
-      population: country.population, 
-      area: country.area});
+    if(country.subregion === undefined)
+      return;
 
+
+    if(!(subregions.some(subregion => subregion.name == country.subregion))){
+      subregions.push({name: country.subregion,
+                      population: 0, 
+                      area: 0, 
+                      Countries: []});
+    }
+
+    //console.log(subregions);
+    var subregion = subregions.filter(element => element.name == country.subregion)[0];
+    subregion.population += country.population;
+    subregion.area += country.area;
+    var capital;
+    if(country.capital == undefined){
+      capital = ""
+    }
+    else{ capital = country.capital[0]}
+    subregion.Countries.push({name: country.name.common,
+                              capital: capital,
+                              population: country.population,
+                              area: country.area});
   });
+  loadPage(subregions, 'name', 1);
+}
+
+function loadPage(subregions, key, order){
+  if(key === 'capital'){
+    sortByKey(subregions, 'name' , order);
+  } else{
+    sortByKey(subregions, key, order);
+  }
+  addSubs2Doc(subregions);
+  subregions.forEach(subregion => {
+    sortByKey(subregion.Countries, key, order);
+    addCountryToSubregion(subregion.name, subregion.Countries);
+  });
+  makeCollapsible();
+  
+  console.log(subregions);
 }
 
 
-var subregions = {};
-loadPage();
-console.log(subregions);
-addSubs2Doc(subregions)
-makeCollapsible();
+const subregions = [];
+var currKey = 'name';
+loadData();
+document.querySelector(".nameCategory").addEventListener("click", () => {
+  currKey = 'name';
+  loadPage(subregions, currKey, 1)
+});
+
+document.querySelector(".populationCategory").addEventListener("click", () => {
+  currKey = 'population';
+  loadPage(subregions, currKey, 1)
+});
+
+document.querySelector(".areaCategory").addEventListener("click", () => {
+  currKey = 'area';
+  loadPage(subregions, currKey, 1)
+});
+
+document.querySelector(".capitalCategory").addEventListener("click", () => {
+  currKey = 'capital';
+  loadPage(subregions, currKey, 1)
+});
+
+
+document.querySelector("#filter-button").addEventListener("click", () => {
+
+  var filteredSubregions = [];
+  var name = document.querySelector("#namefilter").value.toUpperCase();
+  var capital = document.querySelector("#capitalfilter").value.toUpperCase();
+  var population = document.querySelector("#populationfilter").value;
+  var area = document.querySelector("#areafilter").value;
+
+  subregions.forEach(subregion => {
+  var filteredCountries = subregion.Countries.filter(country => (country.name.toUpperCase().startsWith(name) && 
+                                                                country.capital.toUpperCase().startsWith(capital) &&
+                                                                country.population >= population) &&
+                                                                country.area >= area);
+  var filteredArea = 0;
+  var filteredPopulation = 0;
+  filteredCountries.forEach(country => {
+    filteredArea += country.area;
+    filteredPopulation += country.population;
+  });
+
+  filteredSubregions.push({name: subregion.name,
+                          population: filteredPopulation,
+                          area: filteredArea,
+                          Countries: filteredCountries})
+  });
+  filteredSubregions = filteredSubregions.filter(subregion => subregion.Countries.length > 0);
+
+  loadPage(filteredSubregions, currKey, 1);
+
+
+});
+
+
+//console.log(subregions);
+
 
 

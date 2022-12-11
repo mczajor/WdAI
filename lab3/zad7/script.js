@@ -1,6 +1,7 @@
 async function loadData(){
     var response = await fetch('http://localhost:3000/cities');
     var data = await response.json();
+    console.log("chuj");
     return data;
 }
 
@@ -117,5 +118,68 @@ async function loadSite(){
     answerG(data);
 }
 
-
 loadSite();
+
+document.querySelector("#buttonA").addEventListener("click",() =>{ 
+    var text = document.querySelector("#answerA");
+    if(text.style.display === "none"){
+        text.style.display = "block";
+    } else {
+        text.style.display = "none";
+    }
+});
+
+document.querySelector("#buttonB").addEventListener("click",() =>{ 
+    var text = document.querySelector("#answerB");
+    if(text.style.display === "none"){
+        text.style.display = "block";
+    } else {
+        text.style.display = "none";
+    }
+    
+});
+document.querySelector("#buttonC").addEventListener("click",() =>{ 
+    var text = document.querySelector("#answerC");
+    if(text.style.display === "none"){
+        text.style.display = "block";
+    } else {
+        text.style.display = "none";
+    }
+    
+});
+document.querySelector("#buttonD").addEventListener("click",() =>{
+    var text = document.querySelector("#answerD");
+    if(text.style.display === "none"){
+        text.style.display = "block";
+    } else {
+        text.style.display = "none";
+    }
+    
+});
+document.querySelector("#buttonE").addEventListener("click",() =>{ 
+    var text = document.querySelector("#answerE");
+    if(text.style.display === "none"){
+        text.style.display = "block";
+    } else {
+        text.style.display = "none";
+    }
+    
+});
+document.querySelector("#buttonF").addEventListener("click",() =>{ 
+    var text = document.querySelector("#answerF");
+    if(text.style.display === "none"){
+        text.style.display = "block";
+    } else {
+        text.style.display = "none";
+    }
+    
+});
+document.querySelector("#buttonG").addEventListener("click",() =>{ 
+    var text = document.querySelector("#answerG");
+    if(text.style.display === "none"){
+        text.style.display = "block";
+    } else {
+        text.style.display = "none";
+    }
+    
+});
