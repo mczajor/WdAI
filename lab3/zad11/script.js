@@ -123,7 +123,33 @@ function addCountryToSubregion(subregion, countries){
     content.appendChild(document.createElement("hr"));
 });
 }
+function filter(){
+  var filteredSubregions = [];
+  var name = document.querySelector("#namefilter").value.toUpperCase();
+  var capital = document.querySelector("#capitalfilter").value.toUpperCase();
+  var population = document.querySelector("#populationfilter").value;
+  var area = document.querySelector("#areafilter").value;
 
+  subregions.forEach(subregion => {
+  var filteredCountries = subregion.Countries.filter(country => (country.name.toUpperCase().startsWith(name) && 
+                                                                country.capital.toUpperCase().startsWith(capital) &&
+                                                                country.population >= population) &&
+                                                                country.area >= area);
+    var filteredArea = 0;
+    var filteredPopulation = 0;
+    filteredCountries.forEach(country => {
+      filteredArea += country.area;
+      filteredPopulation += country.population;
+    });
+
+    filteredSubregions.push({name: subregion.name,
+                            population: filteredPopulation,
+                            area: filteredArea,
+                            Countries: filteredCountries})
+  });
+  filteredSubregions = filteredSubregions.filter(subregion => subregion.Countries.length > 0);
+  return filteredSubregions;
+}
 
 async function loadData() {
   const response = await fetch('https://restcountries.com/v3.1/all');
@@ -179,55 +205,27 @@ var currKey = 'name';
 loadData();
 document.querySelector(".nameCategory").addEventListener("click", () => {
   currKey = 'name';
-  loadPage(subregions, currKey, 1)
+  loadPage(filter(), currKey, 1)
 });
 
 document.querySelector(".populationCategory").addEventListener("click", () => {
   currKey = 'population';
-  loadPage(subregions, currKey, 1)
+  loadPage(filter(), currKey, 1)
 });
 
 document.querySelector(".areaCategory").addEventListener("click", () => {
   currKey = 'area';
-  loadPage(subregions, currKey, 1)
+  loadPage(filter(), currKey, 1)
 });
 
 document.querySelector(".capitalCategory").addEventListener("click", () => {
   currKey = 'capital';
-  loadPage(subregions, currKey, 1)
+  loadPage(filter(), currKey, 1)
 });
 
 
 document.querySelector("#filter-button").addEventListener("click", () => {
-
-  var filteredSubregions = [];
-  var name = document.querySelector("#namefilter").value.toUpperCase();
-  var capital = document.querySelector("#capitalfilter").value.toUpperCase();
-  var population = document.querySelector("#populationfilter").value;
-  var area = document.querySelector("#areafilter").value;
-
-  subregions.forEach(subregion => {
-  var filteredCountries = subregion.Countries.filter(country => (country.name.toUpperCase().startsWith(name) && 
-                                                                country.capital.toUpperCase().startsWith(capital) &&
-                                                                country.population >= population) &&
-                                                                country.area >= area);
-  var filteredArea = 0;
-  var filteredPopulation = 0;
-  filteredCountries.forEach(country => {
-    filteredArea += country.area;
-    filteredPopulation += country.population;
-  });
-
-  filteredSubregions.push({name: subregion.name,
-                          population: filteredPopulation,
-                          area: filteredArea,
-                          Countries: filteredCountries})
-  });
-  filteredSubregions = filteredSubregions.filter(subregion => subregion.Countries.length > 0);
-
-  loadPage(filteredSubregions, currKey, 1);
-
-
+  loadPage(filter(), currKey, 1);
 });
 
 
