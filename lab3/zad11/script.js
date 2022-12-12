@@ -124,14 +124,14 @@ function addCountryToSubregion(subregion, countries){
 });
 }
 function filter(){
-  const filteredSubregions = [];
+  let filteredSubregions = [];
   const name = document.querySelector("#namefilter").value.toUpperCase();
   const capital = document.querySelector("#capitalfilter").value.toUpperCase();
   const population = document.querySelector("#populationfilter").value;
   const area = document.querySelector("#areafilter").value;
 
   subregions.forEach(subregion => {
-  const filteredCountries = subregion.Countries.filter(country => (country.name.toUpperCase().startsWith(name) && 
+  let filteredCountries = subregion.Countries.filter(country => (country.name.toUpperCase().startsWith(name) && 
                                                                 country.capital.toUpperCase().startsWith(capital) &&
                                                                 country.population >= population) &&
                                                                 country.area >= area);
@@ -202,30 +202,51 @@ function loadPage(subregions, key, order){
 
 const subregions = [];
 var currKey = 'name';
+var order = 1;
 loadData();
 document.querySelector(".nameCategory").addEventListener("click", () => {
-  currKey = 'name';
-  loadPage(filter(), currKey, 1)
+  if (currKey == 'name'){
+    order *= -1;
+  } else{
+    order = 1;
+    currKey = 'name';
+  }
+  loadPage(filter(), currKey, order);
 });
 
 document.querySelector(".populationCategory").addEventListener("click", () => {
-  currKey = 'population';
-  loadPage(filter(), currKey, 1)
+  if (currKey == 'population'){
+    order *= -1;
+  } else{
+    order = 1;
+    currKey = 'population';
+  }
+  loadPage(filter(), currKey, order)
 });
 
 document.querySelector(".areaCategory").addEventListener("click", () => {
-  currKey = 'area';
-  loadPage(filter(), currKey, 1)
+  if (currKey == 'area'){
+    order *= -1;
+  } else{
+    order = 1;
+    currKey = 'area';
+  }
+  loadPage(filter(), currKey, order)
 });
 
 document.querySelector(".capitalCategory").addEventListener("click", () => {
-  currKey = 'capital';
-  loadPage(filter(), currKey, 1)
+  if (currKey == 'capital'){
+    order *= -1;
+  } else{
+    order = 1;
+    currKey = 'capital';
+  }
+  loadPage(filter(), currKey, order)
 });
 
 
 document.querySelector("#filter-button").addEventListener("click", () => {
-  loadPage(filter(), currKey, 1);
+  loadPage(filter(), currKey, order);
 });
 
 

@@ -161,7 +161,7 @@ async function updateHighscores(json){
         entries[i].remove();
     }
     var hsList = document.querySelector("#hs-list");
-    for (var i = 0; i < data.length; i++){
+    for (let i = 0; i < data.length; i++){
         if (i==7)
             break;
         var entry = document.createElement("li");
