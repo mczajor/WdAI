@@ -124,14 +124,14 @@ function addCountryToSubregion(subregion, countries){
 });
 }
 function filter(){
-  var filteredSubregions = [];
-  var name = document.querySelector("#namefilter").value.toUpperCase();
-  var capital = document.querySelector("#capitalfilter").value.toUpperCase();
-  var population = document.querySelector("#populationfilter").value;
-  var area = document.querySelector("#areafilter").value;
+  const filteredSubregions = [];
+  const name = document.querySelector("#namefilter").value.toUpperCase();
+  const capital = document.querySelector("#capitalfilter").value.toUpperCase();
+  const population = document.querySelector("#populationfilter").value;
+  const area = document.querySelector("#areafilter").value;
 
   subregions.forEach(subregion => {
-  var filteredCountries = subregion.Countries.filter(country => (country.name.toUpperCase().startsWith(name) && 
+  const filteredCountries = subregion.Countries.filter(country => (country.name.toUpperCase().startsWith(name) && 
                                                                 country.capital.toUpperCase().startsWith(capital) &&
                                                                 country.population >= population) &&
                                                                 country.area >= area);
