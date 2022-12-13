@@ -24,6 +24,6 @@ function changeSlide(){
     } else if(currId > container.children.length-1){
         currId = 0;
     }
-    var transformValue = 10 - (currId * 95);
+    let transformValue = 10 - (currId * 95);
     container.style.transform = "translate3d(" + transformValue + "%, 0, 0)";
 }
