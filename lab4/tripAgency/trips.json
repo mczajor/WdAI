@@ -1,0 +1,77 @@
+{
+    "Trips": [
+        
+        {
+            "destination": "Kair",
+            "country": "Egipt",
+            "date": "2019-01-01",
+            "price": 1000,
+            "longDesc": "",
+            "quantityLeft": 100,
+            "photo":"./photos/egipt_2.jpg"
+        },
+        {
+            "destination": "Aleksandria",
+            "country": "Egipt",
+            "date": "2019-01-01",
+            "price": 1000,
+            "longDesc": "",
+            "quantityLeft": 100,
+            "photo":"./photos/egipt_1.jpg"
+        },
+        {
+            "destination": "Zakopane",
+            "country": "Polska",
+            "date": "2019-01-01",
+            "price": 1000,
+            "longDesc": "",
+            "quantityLeft": 100,
+            "photo":"./photos/zakopane_1.jpg"
+        },
+        {
+            "destination": "Olsztyn",
+            "country": "Polska",
+            "date": "2019-01-01",
+            "price": 1000,
+            "longDesc": "",
+            "quantityLeft": 100,
+            "photo":"./photos/mazury_1.jpg"
+        },
+        {
+            "destination": "Madryd",
+            "country": "Hiszpania",
+            "date": "2019-01-01",
+            "price": 1000,
+            "longDesc": "",
+            "quantityLeft": 100,
+            "photo":"./photos/hiszpania_1.jpg"
+        },
+        {
+            "destination": "Londyn",
+            "country": "Anglia",
+            "date": "2019-01-01",
+            "price": 1000,
+            "longDesc": "",
+            "quantityLeft": 100,
+            "photo":"./photos/anglia_1.jpg"
+        },
+        {
+            "destination": "Istambul",
+            "country": "Turcja",
+            "date": "2019-01-01",
+            "price": 1000,
+            "longDesc": "",
+            "quantityLeft": 100,
+            "photo":"./photos/turcja_1.jpg"
+        },
+        {
+            "destination": "Ankara",
+            "country": "Turcja",
+            "date": "2019-01-01",
+            "price": 1000,
+            "longDesc": "",
+            "quantityLeft": 100,
+            "photo":"./photos/turcja_2.jpg"
+        }
+    ]
+}
