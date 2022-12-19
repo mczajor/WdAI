@@ -1,0 +1,20 @@
+<div class="main">
+  <app-cbox-container
+    [selectedItems] = "allBrands"
+    (choiceEvent)="selectModel($event)"
+  ></app-cbox-container>
+
+  <app-cbox-container
+    [selectedItems] = "allModels"
+    (choiceEvent)="selectColor($event)"
+  ></app-cbox-container>
+
+  <app-cbox-container
+    [selectedItems] = "allColors"
+    (choiceEvent)="printSpecs($event)"
+  ></app-cbox-container>
+
+  <h1>
+    {{ carSpecs }}
+  </h1>
+</div>

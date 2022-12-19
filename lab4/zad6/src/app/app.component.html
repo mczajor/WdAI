@@ -1,0 +1,11 @@
+<div class="longDesc">
+  {{longDesc}}
+</div>
+
+<div class="buttons">
+  <app-subject-card
+  *ngFor="let card of cards"
+  [title]="card.title"
+  [description]="card.description"
+  (btnClick)="setLongDesc($event)"></app-subject-card>
+</div>

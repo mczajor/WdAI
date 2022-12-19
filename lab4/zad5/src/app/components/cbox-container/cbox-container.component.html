@@ -1,0 +1,7 @@
+<div class="container">
+    <app-choicebox 
+    *ngFor="let item of selectedItems"
+    text="{{item}}"
+    (btnClick)="EmitFurther($event)"></app-choicebox>
+
+</div>
