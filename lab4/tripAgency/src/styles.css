@@ -1,1 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
+
+.trips{
+    margin: auto;
+}
+.trip-card {
+    border: 1px solid lightgray;
+}
+
+.biggest > .trip-card{
+    border: 3px solid green;
+}
+
+.smallest > .trip-card{
+    border: 3px solid lightblue;
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

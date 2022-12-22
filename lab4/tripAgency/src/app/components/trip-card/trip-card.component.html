@@ -1,11 +1,45 @@
-<div class="tripContainer">
-    <img src={{ trip.photo }} alt="No Image">
-    <div class="tripInfo">
-        <h2>{{ trip.destination }}</h3>
-        <h3>{{ trip.country }}</h3>
-        <p>{{ trip.price }} </p>
-        <p>{{ trip.longDesc }}</p>
-        <p>{{ trip.quantityLeft }}</p>
+<a class="trip-card"
+[ngClass]="{
+    'almost-sold-out': trip.quantityLeft < 5,
+    'sold-out': trip.quantityLeft == 0
+}">
+    <div class="image">
+        <img src="{{trip.image}}" alt="No image">
     </div>
-</div>
+    <div class="middle">
+        <h3> {{ trip.destination }} </h3>
+        <p> {{ trip.country }} </p>
+        <p> {{ trip.date }} - {{ trip.date }}</p>
+        <div class="description">{{ trip.description }}</div>
+    </div>
+    <div class="sidebar">
+        <p> od {{ trip.price }} </p>
+        Ilosc miejsc: {{ trip.quantityLeft }}
+        <div class="buttons">
+            <button 
+            class="plus" 
+            (click)="removeAmount()"
+            [ngStyle]="{'background-color': trip.quantityLeft == 0 ? 'gray' : 'green'}"
+            ></button>
+            <button 
+            class="minus" 
+            style="background-color: red"
+            [ngStyle]="{'background-color': trip.quantityLeft == maxQuantity ? 'gray' : 'red'}"
+            (click)="addAmount()"></button>
+        </div>
+    </div>
+    <div [ngStyle]="{'position':'relative'}">
+        <fa-icon 
+        [icon]="faTimes"
+        [ngStyle]="{
+            'color': 'red',
+            'cursor': 'pointer',
+            'position': 'absolute',
+            'top': '-95px',
+            'right': '5px',
+            'font-size': '20px'}"
+        (click)="onDelete(trip)"
+        ></fa-icon>
+    </div>
+</a>
 

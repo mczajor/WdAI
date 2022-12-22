@@ -1,0 +1,48 @@
+<nav>
+    <div class="logo">
+        <a routerLink="/home" routerLinkActive="active">
+            <button>
+                Home
+            </button>
+        </a>
+    </div>
+    <div class="about">
+        <a routerLink="/about" 
+        routerLinkActive="active">
+            <button>
+                About
+            </button>
+        </a>
+    </div>
+    <div class="contact">
+        <a routerLink="/contact" routerLinkActive="active">
+            <button>
+                Contact
+            </button>
+        </a>
+    </div>   
+    <div class="cart"
+    [ngStyle]="{'background-color': cartService.items.length == 10 ? 'green' : 'transparent'}">
+        <a routerLink="/cart" routerLinkAvtive="active"> 
+            <button>
+                Cart {{ cartService.items.length }}
+            </button>
+        </a>
+    </div>
+    <div class="account-managment">
+        <div class="login">
+            <a routerLink="/register" routerLinkActive="active">
+                <button>
+                    Log-in
+                </button>
+            </a>
+        </div>
+        <div class="register">
+                <a routerLink="/login" routerLinkActive="active">
+                    <button>
+                        Register
+                    </button>
+                </a>
+        </div>
+    </div>
+</nav>

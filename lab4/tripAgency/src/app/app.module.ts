@@ -5,20 +5,27 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TripCardComponent } from './components/trip-card/trip-card.component';
 import { TripsContainerComponent } from './components/trips-container/trips-container.component';
-import { NavigationComponent } from './components/navigation/navigation.component';
-import { UserCartComponent } from './components/user-cart/user-cart.component';
+import { HttpClientModule } from '@angular/common/http';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FilterComponent } from './components/filter/filter.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     TripCardComponent,
     TripsContainerComponent,
-    NavigationComponent,
-    UserCartComponent
+    NavbarComponent,
+    FilterComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    BrowserAnimationsModule,
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

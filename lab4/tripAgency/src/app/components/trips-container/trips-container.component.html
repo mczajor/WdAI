@@ -1,3 +1,13 @@
-<app-trip-card
-ngFor*="let trip of trips"
-[trip]="trip"></app-trip-card>
+<div class="trip-container">
+    <app-trip-card
+    *ngFor="let trip of trips"
+    [trip]="trip"
+    [ngClass]="{
+    'biggest': trip === mostExpensive,
+    'smallest': trip === leastExpensive
+    }"
+    (tripRemoved)="removeTrip($event)"
+    (tripAdded)="addTrip($event)"
+    (deleteTrip)="deleteTrip($event)"
+    ></app-trip-card>
+</div>

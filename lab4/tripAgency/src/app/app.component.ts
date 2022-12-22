@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { CartService } from './services/cart.service';
+import { Trip } from './trip';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +9,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'tripAgency';
+  items: Trip[] = [];
+  constructor() { }
 }
