@@ -1,0 +1,70 @@
+<form action="add-form" #addForm="ngForm" (ngSubmit)="onSubmit()">
+    <div class="form-control">
+        <input type="text" 
+        name="destination" 
+        [(ngModel)]="destination"
+        required
+        minlength="3"
+        pattern="^[A-Za-Z]+$"
+        placeholder="Destination">
+    </div>
+    <div class="form-control">
+        <input type="text" 
+        name="country" 
+        [(ngModel)]="country" 
+        required
+        minlength="3"
+        pattern="^[A-Za-Z]+$"
+        placeholder="Country">
+    </div>
+    <div class="form-control">
+        <input type="date" 
+        name="startDate" 
+        [(ngModel)]="startDate" 
+        required
+        placeholder="Starting Date">
+    </div>
+    <div class="form-control">
+        <input type="date" 
+        name="endDate" 
+        [(ngModel)]="endDate" 
+        required 
+        placeholder="Ending Date">
+    </div>
+    <div class="form-control">
+        <input type="text" 
+        name="price" 
+        [(ngModel)]="price" 
+        required
+        min="0"
+        placeholder="Price">
+    </div>
+    <div class="form-control">
+        <input type="number" 
+        name="quantityLeft" 
+        [(ngModel)]="quantityLeft" 
+        required
+        min="0"
+        placeholder="Avaiable spots">
+    </div>
+    <div class="form-control">
+        <input type="text" 
+        name="description" 
+        [(ngModel)]="description" 
+        required
+        minlength="10"
+        maxlength="100"
+        placeholder="Description">
+    </div>
+    <div class="form-control">
+        <input type="text" 
+        name="image" 
+        [(ngModel)]="image" 
+        id="image" 
+        placeholder="Image Link">
+    </div>
+    <input 
+    [disabled]="addForm.invalid"
+    type="submit" 
+    value="Save Trip">
+</form>

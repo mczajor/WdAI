@@ -22,7 +22,7 @@
         </a>
     </div>   
     <div class="cart"
-    [ngStyle]="{'background-color': cartService.items.length == 10 ? 'green' : 'transparent'}">
+    [ngStyle]="{'background-color': cartService.items.length >= 10 ? 'green' : 'red'}">
         <a routerLink="/cart" routerLinkAvtive="active"> 
             <button>
                 Cart {{ cartService.items.length }}

@@ -28,6 +28,6 @@ export class TripsService {
   }
 
   addTrip(trip: Trip): Observable<Trip> {
-    return this.http.post<Trip>(this.apiUrl, trip);
+    return this.http.post<Trip>(this.apiUrl, trip, httpOptions);
   }
 }

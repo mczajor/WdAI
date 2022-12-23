@@ -10,6 +10,14 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FilterComponent } from './components/filter/filter.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { AddTripComponent } from './components/add-trip/add-trip.component';
+import { FormsModule } from '@angular/forms';
+import { RatingComponent } from './components/rating/rating.component';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { FilterPipe } from './pipes/filter.pipe';
 
 
 @NgModule({
@@ -19,13 +27,21 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     TripsContainerComponent,
     NavbarComponent,
     FilterComponent,
+    AddTripComponent,
+    RatingComponent,
+    FilterPipe,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    FormsModule,
+    MatIconModule,
+    MatButtonModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]

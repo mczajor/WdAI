@@ -1,6 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
-.trips{
+.main-container{
     margin: auto;
 }
 .trip-card {
@@ -14,5 +16,14 @@
 .smallest > .trip-card{
     border: 3px solid lightblue;
 }
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.filter-container{
+    position: sticky;
+}
+
+input{
+    border-radius: 15px;
+    border: 1px solid lightgray;
+    height: 25px;
+    margin-right: 10px;
+}

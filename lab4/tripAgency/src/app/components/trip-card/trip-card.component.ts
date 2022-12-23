@@ -1,5 +1,6 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { Trip } from '../../trip';
+import { TripsService } from '../../services/trips.service';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
@@ -15,8 +16,10 @@ export class TripCardComponent {
 
   faTimes = faTimes;
   maxQuantity!: number;
+  rating: number = Math.floor(Math.random() * 5);
+  starCount: number = 5;
 
-  constructor(){
+  constructor(private tripService: TripsService){
   }
   
   ngOnInit(): void {
@@ -36,6 +39,10 @@ export class TripCardComponent {
   }
   onDelete(trip: Trip){
     this.deleteTrip.emit(this.trip);
+  }
+  
+  onRatingChanged(rating: number) {
+    this.rating = rating;
   }
 
 }

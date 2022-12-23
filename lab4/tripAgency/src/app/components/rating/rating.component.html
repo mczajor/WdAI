@@ -1,0 +1,7 @@
+<div class="star-container">
+    <button 
+    *ngFor="let ratingId of ratingArray;
+    index as i" [id]="'star_'+i" (click)="calculateRating(i+1)">
+        <span class="material-icons">{{ iconStatus(i) }}</span>
+     </button>
+ </div>

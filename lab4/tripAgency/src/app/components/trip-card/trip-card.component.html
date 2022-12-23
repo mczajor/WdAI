@@ -7,14 +7,14 @@
         <img src="{{trip.image}}" alt="No image">
     </div>
     <div class="middle">
-        <h3> {{ trip.destination }} </h3>
-        <p> {{ trip.country }} </p>
-        <p> {{ trip.date }} - {{ trip.date }}</p>
+        <h3 style="font-weight: bold"> {{ trip.destination | uppercase }} </h3>
+        <p> {{ trip.country | uppercase }} </p>
+        <p> {{ trip.startDate }} - {{ trip.endDate }}</p>
         <div class="description">{{ trip.description }}</div>
     </div>
     <div class="sidebar">
-        <p> od {{ trip.price }} </p>
-        Ilosc miejsc: {{ trip.quantityLeft }}
+        <p> from: {{ trip.price | currency:'USD'}}  </p>
+        Seats left: {{ trip.quantityLeft }}
         <div class="buttons">
             <button 
             class="plus" 
@@ -27,6 +27,8 @@
             [ngStyle]="{'background-color': trip.quantityLeft == maxQuantity ? 'gray' : 'red'}"
             (click)="addAmount()"></button>
         </div>
+        <app-rating [rating]="rating" (ratingUpdated)="onRatingChanged($event)"></app-rating>
+        <router-outlet></router-outlet>
     </div>
     <div [ngStyle]="{'position':'relative'}">
         <fa-icon 
