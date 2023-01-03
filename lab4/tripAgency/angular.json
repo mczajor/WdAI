@@ -93,6 +93,16 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "tripAgency:build:production",
+            "firebaseProject": "tripagency-6f84c",
+            "firebaseHostingSite": "tripagency-6f84c"
+          }
         }
       }
     }

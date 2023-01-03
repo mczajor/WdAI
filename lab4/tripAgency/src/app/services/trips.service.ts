@@ -14,7 +14,7 @@ const httpOptions = {
 })
 
 export class TripsService {
-  private apiUrl = 'http://localhost:3000/Trips';
+  private apiUrl = 'http://localhost:3000/trips';
 
   constructor(private http: HttpClient) { }
 

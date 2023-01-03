@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "tripagency-6f84c"
+  },
+  "targets": {
+    "tripagency-6f84c": {
+      "hosting": {
+        "tripAgency": [
+          "tripagency-6f84c"
+        ]
+      }
+    }
+  }
+}

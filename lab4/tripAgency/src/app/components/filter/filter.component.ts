@@ -18,6 +18,6 @@ export class FilterComponent {
   
   constructor() { }
   onSubmit(){
-    this.filter.setVariables(this.destination, this.country, this.minPrice, this.maxPrice, this.startDate, this.endDate, this.spotsLeft);
+    return;
   }
 }
