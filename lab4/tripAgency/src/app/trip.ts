@@ -1,5 +1,5 @@
 export interface Trip{
-    id: number;
+    id?: number;
     destination: string;
     country: string;
     startDate: string;

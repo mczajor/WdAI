@@ -1,5 +1,6 @@
 import { Component, Output, EventEmitter } from '@angular/core';
 import { Trip } from '../../trip';
+import { TripsService } from '../../services/trips.service';
 
 @Component({
   selector: 'app-add-trip',
@@ -12,12 +13,12 @@ export class AddTripComponent {
   country!: string;
   startDate!: string;
   endDate!: string;
-  price!: number;
+  price!: string;
   description!: string;
-  quantityLeft!: number;
+  quantityLeft!: string;
   image!: string;
 
-  @Output() onAddTrip: EventEmitter<Trip> = new EventEmitter();
+  constructor(private tripsService: TripsService){}
 
 
   onSubmit(){
@@ -30,21 +31,21 @@ export class AddTripComponent {
       country: this.country,
       startDate: this.startDate,
       endDate: this.endDate,
-      price: this.price,
-      quantityLeft: this.quantityLeft,
+      price: parseInt(this.price),
+      quantityLeft: parseInt(this.quantityLeft),
       description: this.description,
       rating: 0,
-      id:0,
       imageUrl: this.image
     }
-    this.onAddTrip.emit(newTrip);
+
+    this.tripsService.addTrip(newTrip);
     this.destination = '';
     this.country = '';
     this.startDate = '';
     this.endDate = '';
-    this.price = 0;
+    this.price = '';
     this.description = '';
-    this.quantityLeft = 0;
+    this.quantityLeft = '';
     this.image = '';
   }
 }

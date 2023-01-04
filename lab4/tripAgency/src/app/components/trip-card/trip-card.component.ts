@@ -2,6 +2,8 @@ import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { Trip } from '../../trip';
 import { TripsService } from '../../services/trips.service';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
+import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-trip-card',
@@ -15,11 +17,12 @@ export class TripCardComponent {
   @Output() deleteTrip = new EventEmitter<Trip>();
 
   faTimes = faTimes;
+  faArrowRight = faArrowRight;
   maxQuantity!: number;
   rating: number = Math.floor(Math.random() * 5);
   starCount: number = 5;
 
-  constructor(private tripService: TripsService){
+  constructor(private tripService: TripsService, private router: Router){
   }
   
   ngOnInit(): void {
@@ -43,6 +46,11 @@ export class TripCardComponent {
   
   onRatingChanged(rating: number) {
     this.rating = rating;
+  }
+
+  onSelect(){
+    this.router.navigate(['/triplist', this.trip.id]);
+    
   }
 
 }

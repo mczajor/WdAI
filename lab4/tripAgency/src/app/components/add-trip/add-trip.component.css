@@ -1,5 +1,39 @@
 form{
     display: flex;
-    flex-direction: row;
-    margin: auto;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+
+}
+
+input{
+    margin: 7px auto 7px auto;
+}
+
+.form-control{
+    width: 400px;
+}
+
+.form-control > input{
+    width: 100%;
+}
+
+.double > input{
+    width: 46%;
+    margin-left: 10px;
+}
+
+.description{
+    height: 50px;
+}
+
+.description > textarea{
+    width: 100%;
+    height: 90%;
+}
+
+#button:hover{
+    background-color: #4CAF50;
+    color: white;
 }

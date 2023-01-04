@@ -9,6 +9,5 @@ import { Trip } from './trip';
 })
 export class AppComponent {
   title = 'tripAgency';
-  items: Trip[] = [];
   constructor() { }
 }

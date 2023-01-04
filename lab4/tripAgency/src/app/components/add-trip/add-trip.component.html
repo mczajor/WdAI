@@ -17,29 +17,27 @@
         pattern="^[A-Za-Z]+$"
         placeholder="Country">
     </div>
-    <div class="form-control">
+    <div class="form-control double">
         <input type="date" 
         name="startDate" 
         [(ngModel)]="startDate" 
         required
         placeholder="Starting Date">
-    </div>
-    <div class="form-control">
+
         <input type="date" 
         name="endDate" 
         [(ngModel)]="endDate" 
         required 
         placeholder="Ending Date">
     </div>
-    <div class="form-control">
+    <div class="form-control double">
         <input type="text" 
         name="price" 
         [(ngModel)]="price" 
         required
         min="0"
         placeholder="Price">
-    </div>
-    <div class="form-control">
+   
         <input type="number" 
         name="quantityLeft" 
         [(ngModel)]="quantityLeft" 
@@ -47,24 +45,27 @@
         min="0"
         placeholder="Avaiable spots">
     </div>
-    <div class="form-control">
-        <input type="text" 
+    <div class="form-control description">
+        <textarea
         name="description" 
         [(ngModel)]="description" 
         required
         minlength="10"
-        maxlength="100"
+        maxlength="200"
         placeholder="Description">
+    </textarea>
     </div>
     <div class="form-control">
         <input type="text" 
         name="image" 
         [(ngModel)]="image" 
+        required
         id="image" 
         placeholder="Image Link">
     </div>
     <input 
     [disabled]="addForm.invalid"
     type="submit" 
-    value="Save Trip">
+    value="Save Trip"
+    id="button">
 </form>

@@ -63,8 +63,6 @@
     padding: 5px;
 }
 
-.sidebar *{
-}
 
 .buttons{
     display: flex;
@@ -79,4 +77,23 @@
     margin: 0 10px;
     border-radius: 20%;
     cursor: pointer;
+}
+
+.details-button{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 70%;
+    height: 30px;
+    border: 1px solid black;
+    border-radius: 5px;
+    background-color: lightblue;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.details-button:hover{
+    background-color: #4CAF50;
+    color: white;
 }

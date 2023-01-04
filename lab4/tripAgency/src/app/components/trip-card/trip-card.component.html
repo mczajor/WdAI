@@ -27,8 +27,16 @@
             [ngStyle]="{'background-color': trip.quantityLeft == maxQuantity ? 'gray' : 'red'}"
             (click)="addAmount()"></button>
         </div>
+        <div 
+        class="details-button"
+        (click)="onSelect()">
+            Trip Details 
+            <fa-icon
+            [icon]="faArrowRight"
+            [ngStyle]="{'margin-left': '5px'}"
+            ></fa-icon>
+        </div>
         <app-rating [rating]="trip.rating" (ratingUpdated)="onRatingChanged($event)"></app-rating>
-        <router-outlet></router-outlet>
     </div>
     <div [ngStyle]="{'position':'relative'}">
         <fa-icon 
