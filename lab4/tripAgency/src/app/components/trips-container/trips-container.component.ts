@@ -1,8 +1,10 @@
 import { Component, Output, EventEmitter } from '@angular/core';
 import { TripsService } from '../../services/trips.service';
 import { CartService } from '../../services/cart.service';
-import { Subscription } from 'rxjs'
+import { Subject, Subscription, filter, takeUntil, tap } from 'rxjs'
 import { Trip } from '../../trip';
+import { AddTripComponent } from '../add-trip/add-trip.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-trips-container',
@@ -18,11 +20,14 @@ export class TripsContainerComponent {
   @Output() tripAdded = new EventEmitter<Trip>();
   @Output() tripRemoved = new EventEmitter<Trip>();
 
+  destroy$ = new Subject<void>();
+
   constructor(private tripsService: TripsService, private cartService: CartService) { }
 
   ngOnInit(): void {
     this.tripsService.getTrips().subscribe((trips) => {
       this.trips = trips;
+      console.log(this.trips);
       this.findMostExpensive();
       this.findLeastExpensive();
     });
@@ -73,18 +78,14 @@ export class TripsContainerComponent {
   }
 
   deleteTrip(trip: Trip){
-    this.tripsService.deleteTrip(trip).subscribe(() => {
-      this.trips = this.trips.filter(t => t.id != trip.id);
-      this.findMostExpensive();
-      this.findLeastExpensive();
-    });
+    this.tripsService.deleteTrip(trip);
   }
 
   addTrip(trip: Trip){
-    this.tripsService.addTrip(trip).subscribe((trip) => {
-      this.trips.push(trip);
-      this.findMostExpensive();
-      this.findLeastExpensive();
-    });
+    this.tripsService.addTrip(trip);
+  }
+
+  ngOnDestroy() {
+    this.destroy$.next();
   }
 }

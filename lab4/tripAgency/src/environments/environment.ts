@@ -3,6 +3,7 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
+  production: false,
   firebase: {
     projectId: 'tripagency-6f84c',
     appId: '1:357928446689:web:f00d9a8f65f305715025a0',
@@ -12,18 +13,8 @@ export const environment = {
     authDomain: 'tripagency-6f84c.firebaseapp.com',
     messagingSenderId: '357928446689',
     measurementId: 'G-Y0RCJFHL8D',
-  },
-  production: false,
-  firebaseConfig: {
-    apiKey: "AIzaSyAeF2Z1XEi_Wf-sdlW2WbQCovfrrq0qSwQ",
-    authDomain: "tripagency-6f84c.firebaseapp.com",
-    databaseURL: "https://tripagency-6f84c-default-rtdb.europe-west1.firebasedatabase.app",
-    projectId: "tripagency-6f84c",
-    storageBucket: "tripagency-6f84c.appspot.com",
-    messagingSenderId: "357928446689",
-    appId: "1:357928446689:web:f00d9a8f65f305715025a0",
-    measurementId: "G-Y0RCJFHL8D"
   }
+  
 };
 
 

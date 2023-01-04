@@ -17,8 +17,8 @@ export class AddTripComponent {
   quantityLeft!: number;
   image!: string;
 
-
   @Output() onAddTrip: EventEmitter<Trip> = new EventEmitter();
+
 
   onSubmit(){
     if(!this.destination){
@@ -34,7 +34,8 @@ export class AddTripComponent {
       quantityLeft: this.quantityLeft,
       description: this.description,
       rating: 0,
-      image: this.image
+      id:0,
+      imageUrl: this.image
     }
     this.onAddTrip.emit(newTrip);
     this.destination = '';

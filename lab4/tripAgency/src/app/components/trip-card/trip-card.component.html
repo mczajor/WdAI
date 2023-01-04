@@ -4,7 +4,7 @@
     'sold-out': trip.quantityLeft == 0
 }">
     <div class="image">
-        <img src="{{trip.image}}" alt="No image">
+        <img src="{{trip.imageUrl}}" alt="No image">
     </div>
     <div class="middle">
         <h3 style="font-weight: bold"> {{ trip.destination | uppercase }} </h3>
@@ -27,7 +27,7 @@
             [ngStyle]="{'background-color': trip.quantityLeft == maxQuantity ? 'gray' : 'red'}"
             (click)="addAmount()"></button>
         </div>
-        <app-rating [rating]="rating" (ratingUpdated)="onRatingChanged($event)"></app-rating>
+        <app-rating [rating]="trip.rating" (ratingUpdated)="onRatingChanged($event)"></app-rating>
         <router-outlet></router-outlet>
     </div>
     <div [ngStyle]="{'position':'relative'}">

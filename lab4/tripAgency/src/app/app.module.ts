@@ -18,11 +18,14 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FilterPipe } from './pipes/filter.pipe';
-import { AngularFireModule } from "@angular/fire/compat";
+
+
 import { environment } from '../environments/environment';
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { provideAuth,getAuth } from '@angular/fire/auth';
-import { provideDatabase,getDatabase } from '@angular/fire/database';
+import { provideFirestore,getFirestore } from '@angular/fire/firestore';
+import {MatDialogModule} from '@angular/material/dialog'; 
+
 
 
 @NgModule({
@@ -47,10 +50,11 @@ import { provideDatabase,getDatabase } from '@angular/fire/database';
     MatButtonModule,
     MatFormFieldModule,
     MatInputModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig),
+    MatDialogModule,
+    BrowserModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
-    provideDatabase(() => getDatabase())
+    provideFirestore(() => getFirestore()),
   ],
   providers: [],
   bootstrap: [AppComponent]
