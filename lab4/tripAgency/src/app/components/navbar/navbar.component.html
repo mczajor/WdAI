@@ -25,7 +25,7 @@
     [ngStyle]="{'background-color': cartService.items.length >= 10 ? 'green' : 'red'}">
         <a routerLink="/cart" routerLinkActive="active"> 
             <button>
-                Cart {{ cartService.items.length }} {{ cartService.total | currency:'USD'}}
+                Cart {{ cartService.totalItems }} {{ cartService.total | currency:'USD'}}
             </button>
         </a>
     </div>

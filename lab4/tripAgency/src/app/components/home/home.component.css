@@ -1,0 +1,23 @@
+h1{
+    text-align: center;
+}
+
+.info-container{
+    margin: auto;
+    width: 60%;
+}
+
+.info-container > h2{
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.contact-info{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.contact-info > div{
+    margin: 0 20px;
+}

@@ -1,1 +1,23 @@
-<p>cart works!</p>
+<div class="cart">
+    <div class="container" *ngIf="tripsInCart.length != 0">
+        <div class="cards">
+            <app-cart-trip-card
+            *ngFor="let trip of tripsInCart"
+            [ngStyle]="{display: trip.quantityInCart == 0 ? 'none' : 'block'}"
+            [trip]="trip"
+            (tripRemoved)="addToCart($event)"
+            (tripAdded)="removeFromCart($event)"
+            (tripBought)="buyTrip($event)"></app-cart-trip-card>
+        </div>
+        <hr>
+        <div class="total">
+            <h3>Total: lkjasdflkj</h3>
+            <button class="buy"
+            (click)="buyAll()">Buy Now</button>
+        </div>
+
+    <div class="empty"
+    *ngIf="tripsInCart.length == 0">
+        <h3>Your cart is empty</h3>
+    </div>
+</div>

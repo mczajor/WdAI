@@ -3,7 +3,7 @@
     <form action="submit" (ngSubmit)="onSubmit()">
         
         <div class="city-filter form-element">
-            <label for="destination"> Miejsce </label>
+            <label for="destination"> Destination </label>
             <input type="text"
             [(ngModel)]="destination"
             placeholder="City"  
@@ -11,7 +11,7 @@
         </div>
         <hr>
         <div class="country-filter form-element">
-            <label for="searchText"> Kraj </label>
+            <label for="searchText"> Country </label>
             <input type="text"
             placeholder="Country"
             [(ngModel)]="country"
@@ -19,7 +19,7 @@
         </div>
         <hr>
         <div class="price-filter form-element">
-            <label for="searchText"> Cena </label>
+            <label for="searchText"> Price </label>
             <div class="price">
                 <input type="number"
                 placeholder="MinPrice"
@@ -33,7 +33,7 @@
         </div>
         <hr>
         <div class="date-filter form-element">
-            <label for="searchText"> Data </label>
+            <label for="searchText"> Date </label>
             <div class="date">
                 <input type="date"
                 placeholder="Starting Date"
@@ -47,7 +47,7 @@
         </div>
         <hr>
         <div class="spots-left-filter form-element">
-            <label for="searchText"> Ilość miejsc </label>
+            <label for="searchText"> Spots Left </label>
             <input type="number"
             placeholder="SpotsLeft"
             [(ngModel)]="spotsLeft"

@@ -3,7 +3,6 @@ import { TripsService } from '../../services/trips.service';
 import { CartService } from '../../services/cart.service';
 import { Subject, Subscription, filter, takeUntil, tap } from 'rxjs'
 import { Trip } from '../../trip';
-import { AddTripComponent } from '../add-trip/add-trip.component';
 import { MatDialog } from '@angular/material/dialog';
 
 @Component({
@@ -27,14 +26,20 @@ export class TripsContainerComponent {
   ngOnInit(): void {
     this.tripsService.getTrips().subscribe((trips) => {
       this.trips = trips;
-      console.log(this.trips);
+      for(let item of this.cartService.getItems()){
+        this.trips.forEach(trip => {
+          if(trip.id == item.id){
+            trip.quantityInCart = item.quantityInCart;
+          }
+        });
+      }
       this.findMostExpensive();
       this.findLeastExpensive();
     });
   }
 
   findMostExpensive(){
-    let filtered = this.trips.filter(trip => trip.quantityLeft > 0);
+    let filtered = this.trips.filter(trip => (trip.quantityLeft - (trip.quantityInCart || 0) > 0));
     this.mostExpensive = filtered[0];
     filtered.forEach(trip => {
       if(trip.price > this.mostExpensive.price){
@@ -44,7 +49,7 @@ export class TripsContainerComponent {
   }
 
   findLeastExpensive(){
-    let filtered = this.trips.filter(trip => trip.quantityLeft > 0);
+    let filtered = this.trips.filter(trip => (trip.quantityLeft - (trip.quantityInCart || 0) > 0));
     this.leastExpensive = filtered[0];
     filtered.forEach(trip => {
       if(trip.price < this.leastExpensive.price){
@@ -54,26 +59,26 @@ export class TripsContainerComponent {
   }
 
   returnTrip(trip: Trip){
-    trip.quantityLeft++;
-    if(trip.quantityLeft == 1){
+    if((trip.quantityInCart || 0 ) == 1){
       if(trip.price >= this.mostExpensive.price){
         this.mostExpensive = trip;
       } else if(trip.price <= this.leastExpensive.price){
         this.leastExpensive = trip;
       }
     }
+    trip.quantityInCart = (trip.quantityInCart || 0) - 1;
     this.cartService.onRemove(trip);
   }
 
   addToCart(trip: Trip){
-    trip.quantityLeft--;
-    if(trip.quantityLeft == 0){
+    if((trip.quantityInCart || 0 ) == trip.quantityLeft){
       if(trip == this.mostExpensive){
         this.findMostExpensive();
       } else if(trip == this.leastExpensive){
         this.findLeastExpensive();
-      } 
+      }
     }
+    trip.quantityInCart = (trip.quantityInCart || 0) + 1;
     this.cartService.onAdd(trip);
   }
 

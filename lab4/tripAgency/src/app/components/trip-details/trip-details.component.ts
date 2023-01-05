@@ -13,6 +13,7 @@ export class TripDetailsComponent {
 
   username!: string;
   content!: string;
+  includeDate: boolean = false;
 
   constructor(private tripsService: TripsService, private route: ActivatedRoute){}
   
@@ -24,12 +25,16 @@ export class TripDetailsComponent {
   }
 
   onSubmit(){
+    let date: string = "";
+    if(this.includeDate){
+      date = new Date().toLocaleDateString();
+    }
     const newComment: Comment = {
       username: this.username,
       content: this.content,
-      tripname: this.trip.destination + " " + this.trip.country
+      tripname: this.trip.destination + " " + this.trip.country,
+      date: date
     }
-    console.log(newComment);
     this.trip.comments.push(newComment);
     this.tripsService.updateTrip(this.trip);
     this.username = "";

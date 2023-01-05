@@ -3,15 +3,20 @@
         <img src="{{trip.imageUrl}}" alt="Image not Found">
     </div>
     <div class="description">
-        {{trip.destination}}
+        {{trip.destination | uppercase}}
         {{trip.country}}
-        {{trip.startDate}} - {{trip.endDate}}
-        {{trip.price | currency:'USD' }}
+        <div class="dates"> 
+            {{trip.startDate}} - {{trip.endDate}}
+        </div>
+        <div class="price">
+            {{trip.price | currency:'USD' }}
+        </div>
         {{trip.description}}
     </div>
     <div class="comments-container">
-        <form action="comment-form" #commentForm="ngForm" (ngSubmit)="onSubmit()">
-            <input type="text"
+        <form class="comment-form" action="comment-form" #commentForm="ngForm" (ngSubmit)="onSubmit()">
+            <div class="usernamecheckbox">
+                <input type="text"
                 name="username"
                 [(ngModel)]="username"
                 required
@@ -19,6 +24,16 @@
                 maxlength="30"
                 placeholder="Username"
                 id="username">
+                <div class="checkbox-container"> 
+                    <label for="inludeDate"> Include Date?</label>
+                    <input type="checkbox"
+                    name="includeDate"
+                    [(ngModel)]="includeDate"
+                    id="includeDate">
+                </div>
+               
+            </div>
+            
 
             <textarea type="text"
                 name="content"
@@ -26,10 +41,9 @@
                 required
                 minlength="50"
                 maxlength="500"
-                placeholder="Contents of comment"
+                placeholder="Comment"
                 id="content">
             </textarea>
-
             <input type="Submit"
                 [disabled]="commentForm.invalid"
                 value="Add Comment"
@@ -37,10 +51,12 @@
         </form>
         <div class="comment" *ngFor="let comment of trip.comments">
             <div class="comment-header">
-                {{comment.username}}
+                <div class="username-container"> {{comment.username}} wrote:</div>
+                <div class="date-container">{{comment.date}}</div>
+            </div>
+            <div class="comment-content">
                 {{comment.content}}
             </div>
-            <div class="comment-content"></div>
         </div>
     </div>
 </main>

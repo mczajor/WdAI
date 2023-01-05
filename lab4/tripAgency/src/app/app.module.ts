@@ -31,6 +31,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { GoogleMapsModule } from '@angular/google-maps';
 import { TripDetailsComponent } from './components/trip-details/trip-details.component';
+import { CartTripCardComponent } from './components/cart-trip-card/cart-trip-card.component';
 
 
 
@@ -48,6 +49,7 @@ import { TripDetailsComponent } from './components/trip-details/trip-details.com
     CartComponent,
     PageNotFoundComponent,
     TripDetailsComponent,
+    CartTripCardComponent,
   ],
   imports: [
     BrowserModule,

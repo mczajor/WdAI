@@ -1,8 +1,4 @@
-<div class="trip-card"
-[ngClass]="{
-    'almost-sold-out': trip.quantityLeft - (trip.quantityInCart || 0) < 5,
-    'sold-out': trip.quantityLeft - (trip.quantityInCart || 0) == 0
-}">
+<div class="trip-card">
     <div class="image">
         <img src="{{trip.imageUrl}}" alt="No image">
     </div>
@@ -14,7 +10,7 @@
     </div>
     <div class="sidebar">
         <p> from: {{ trip.price | currency:'USD'}}  </p>
-        Spots left: {{ trip.quantityLeft - (trip.quantityInCart || 0) }}
+        Spots: {{ (trip.quantityInCart || 0) }}
         <div class="buttons">
             <button 
             class="plus" 
@@ -37,7 +33,7 @@
             </button>
         </div>
         <div 
-        class="details-button"
+        class="details card-button"
         (click)="onSelect()">
             Trip Details 
             <fa-icon
@@ -45,20 +41,10 @@
             [ngStyle]="{'margin-left': '5px'}"
             ></fa-icon>
         </div>
-        <app-rating [rating]="trip.rating" (ratingUpdated)="onRatingChanged($event)"></app-rating>
-    </div>
-    <div [ngStyle]="{'position':'relative'}">
-        <fa-icon 
-        [icon]="faTimes"
-        [ngStyle]="{
-            'color': 'red',
-            'cursor': 'pointer',
-            'position': 'absolute',
-            'top': '-95px',
-            'right': '5px',
-            'font-size': '20px'}"
-        (click)="onDelete(trip)"
-        ></fa-icon>
+        <div class="buy card-button"
+        (click)="onBuy()">
+        Buy Now
+        </div>
     </div>
 </div>
 

@@ -1,34 +1,30 @@
-import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
-import { Trip } from '../../trip';
-import { TripsService } from '../../services/trips.service';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { faTimes, faArrowRight, faPlus, faMinus} from '@fortawesome/free-solid-svg-icons';
+import { Trip } from '../../trip';
 import { Router } from '@angular/router';
+import { CartService } from 'src/app/services/cart.service';
+import { TripsService } from 'src/app/services/trips.service';
 
 @Component({
-  selector: 'app-trip-card',
-  templateUrl: './trip-card.component.html',
-  styleUrls: ['./trip-card.component.css']
+  selector: 'app-cart-trip-card',
+  templateUrl: './cart-trip-card.component.html',
+  styleUrls: ['./cart-trip-card.component.css']
 })
-export class TripCardComponent {
+export class CartTripCardComponent {
   @Input() trip!: Trip;
   @Output() tripAdded = new EventEmitter<Trip>();
   @Output() tripRemoved = new EventEmitter<Trip>();
-  @Output() deleteTrip = new EventEmitter<Trip>();
+  @Output() tripBought = new EventEmitter<Trip>();
 
   faTimes = faTimes;
   faArrowRight = faArrowRight;
   faMinus = faMinus;
   faPlus = faPlus;
-  maxQuantity!: number;
-  rating: number = Math.floor(Math.random() * 5);
-  starCount: number = 5;
 
-  constructor(private tripService: TripsService, private router: Router){
-  }
-  
-  ngOnInit(): void {
-    this.maxQuantity = this.trip.quantityLeft;
-  }
+  rating: number = Math.floor(Math.random() * 5);
+
+  constructor(private router: Router) { }
+
 
   addAmount(){
     if((this.trip.quantityInCart || 0 ) > 0){
@@ -42,9 +38,6 @@ export class TripCardComponent {
       this.tripRemoved.emit(this.trip);
     }
   }
-  onDelete(trip: Trip){
-    this.deleteTrip.emit(this.trip);
-  }
   
   onRatingChanged(rating: number) {
     this.rating = rating;
@@ -52,7 +45,12 @@ export class TripCardComponent {
 
   onSelect(){
     this.router.navigate(['/triplist', this.trip.id]);
-    
+
   }
+
+  onBuy(){
+    this.tripBought.emit(this.trip);
+  }
+
 
 }

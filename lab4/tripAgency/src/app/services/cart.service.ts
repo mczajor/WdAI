@@ -7,31 +7,45 @@ import { Trip } from '../trip'
 })
 export class CartService {
   items: Trip[] = [];
-  
+  totalItems: number = 0;
   total: number = 0;
 
-  constructor() { }
+  constructor() { ;
+  }
 
   onAdd(trip: Trip) {
-    this.items.push(trip);
+    const index = this.items.findIndex(item => item.id == trip.id);
+    if (index == -1){
+      this.items.push(trip);
+    } else{
+      this.items[index].quantityInCart = trip.quantityInCart;
+    }
+    this.totalItems += 1;
     this.total += trip.price;
   }
   
   onRemove(trip: Trip) {
-    const index = this.items.indexOf(trip);
+    const index = this.items.findIndex(item => item.id == trip.id);
+    if(index > -1){ 
+      this.items[index].quantityInCart = trip.quantityInCart;
+      this.total -= trip.price;
+      this.totalItems -= 1;
+      if(this.items[index].quantityInCart == 0){
+        this.items.splice(index, 1);
+      }
+    } 
+  }
+
+  getItems(){
+    return this.items;
+  }
+
+  buyItem(trip: Trip){
+    const index = this.items.findIndex(item => item.id == trip.id);
     if(index > -1){
       this.items.splice(index, 1);
-      this.total -= trip.price;
+      this.total -= trip.price*(trip.quantityInCart || 0);
     }
   }
-  getAll(){
-    const count:{[name:string]:number} = {};
-    this.items.forEach(element => {
-      if(element.id == undefined){
-        return;
-      }
-      count[element.id] = ( count[element.id] || 0 ) + 1;
-    });
-    return count;
-  }
+
 }

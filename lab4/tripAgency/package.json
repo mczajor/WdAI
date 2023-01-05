@@ -30,6 +30,7 @@
     "@fortawesome/free-solid-svg-icons": "^6.2.0",
     "angularfire2": "^5.4.2",
     "firebase": "^9.15.0",
+    "ng-image-slider": "^7.0.0",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.12.0"
