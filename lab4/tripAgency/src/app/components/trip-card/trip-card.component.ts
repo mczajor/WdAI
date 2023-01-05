@@ -1,8 +1,7 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { Trip } from '../../trip';
 import { TripsService } from '../../services/trips.service';
-import { faTimes } from '@fortawesome/free-solid-svg-icons';
-import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
+import { faTimes, faArrowRight, faPlus, faMinus} from '@fortawesome/free-solid-svg-icons';
 import { Router } from '@angular/router';
 
 @Component({
@@ -18,6 +17,8 @@ export class TripCardComponent {
 
   faTimes = faTimes;
   faArrowRight = faArrowRight;
+  faMinus = faMinus;
+  faPlus = faPlus;
   maxQuantity!: number;
   rating: number = Math.floor(Math.random() * 5);
   starCount: number = 5;

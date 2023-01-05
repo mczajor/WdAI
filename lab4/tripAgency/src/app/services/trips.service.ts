@@ -11,13 +11,7 @@ import {
   doc,
   updateDoc,
 } from '@firebase/firestore';
-import { Firestore, collectionData } from '@angular/fire/firestore';
-
-const httpOptions = {
-  headers: new HttpHeaders({
-    'Content-Type': 'application/json'
-  })
-}
+import { Firestore, collectionData, docData } from '@angular/fire/firestore';
 
 @Injectable({
   providedIn: 'root'
@@ -39,6 +33,11 @@ export class TripsService {
     return this.trips;
   }
 
+  getOne(id: string){
+    const tripRef = doc(this.firestore, `trips/${id}`);
+    return docData(tripRef, { idField: 'id' });
+  }
+
   deleteTrip(trip: Trip) {
     const tripRef = doc(this.firestore, `trips/${trip.id}`);
     return deleteDoc(tripRef);
@@ -50,6 +49,7 @@ export class TripsService {
 
   updateTrip(trip: Trip) {
     const tripRef = doc(this.firestore, `trips/${trip.id}`);
+    console.log(trip);
     return updateDoc(tripRef, {... trip });
   }
 }

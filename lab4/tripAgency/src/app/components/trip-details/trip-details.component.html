@@ -1,1 +1,46 @@
-<p>trip-details works!</p>
+<main>
+    <div class="image">
+        <img src="{{trip.imageUrl}}" alt="Image not Found">
+    </div>
+    <div class="description">
+        {{trip.destination}}
+        {{trip.country}}
+        {{trip.startDate}} - {{trip.endDate}}
+        {{trip.price | currency:'USD' }}
+        {{trip.description}}
+    </div>
+    <div class="comments-container">
+        <form action="comment-form" #commentForm="ngForm" (ngSubmit)="onSubmit()">
+            <input type="text"
+                name="username"
+                [(ngModel)]="username"
+                required
+                minlength="3"
+                maxlength="30"
+                placeholder="Username"
+                id="username">
+
+            <textarea type="text"
+                name="content"
+                [(ngModel)]="content"
+                required
+                minlength="50"
+                maxlength="500"
+                placeholder="Contents of comment"
+                id="content">
+            </textarea>
+
+            <input type="Submit"
+                [disabled]="commentForm.invalid"
+                value="Add Comment"
+                id="submit">
+        </form>
+        <div class="comment" *ngFor="let comment of trip.comments">
+            <div class="comment-header">
+                {{comment.username}}
+                {{comment.content}}
+            </div>
+            <div class="comment-content"></div>
+        </div>
+    </div>
+</main>

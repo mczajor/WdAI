@@ -1,3 +1,4 @@
+import { getLocaleCurrencyCode } from '@angular/common';
 import { Injectable } from '@angular/core';
 import { Trip } from '../trip'
 
@@ -6,6 +7,7 @@ import { Trip } from '../trip'
 })
 export class CartService {
   items: Trip[] = [];
+  
   total: number = 0;
 
   constructor() { }
@@ -21,6 +23,15 @@ export class CartService {
       this.items.splice(index, 1);
       this.total -= trip.price;
     }
-    
+  }
+  getAll(){
+    const count:{[name:string]:number} = {};
+    this.items.forEach(element => {
+      if(element.id == undefined){
+        return;
+      }
+      count[element.id] = ( count[element.id] || 0 ) + 1;
+    });
+    return count;
   }
 }

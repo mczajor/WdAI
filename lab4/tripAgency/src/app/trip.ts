@@ -1,5 +1,5 @@
 export interface Trip{
-    id?: number;
+    id?: string;
     destination: string;
     country: string;
     startDate: string;
@@ -9,4 +9,13 @@ export interface Trip{
     quantityLeft: number;
     rating: number;
     imageUrl: string;
+    comments: Comment[];
+}
+
+export interface Comment{
+    id?:string;
+    username: string;
+    tripname: string;
+    content: string;
+    date?: string;
 }
