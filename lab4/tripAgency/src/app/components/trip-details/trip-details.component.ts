@@ -40,4 +40,11 @@ export class TripDetailsComponent {
     this.username = "";
     this.content = "";
   }
+
+  onRatingChanged(rating: number) {
+    rating = this.trip.rating * this.trip.totalRating + rating;
+    this.trip.totalRating += 1;
+    this.trip.rating = rating / this.trip.totalRating;
+    this.tripsService.updateTrip(this.trip);
+  }
 }

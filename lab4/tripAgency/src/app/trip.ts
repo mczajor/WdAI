@@ -9,6 +9,7 @@ export interface Trip{
     quantityLeft: number;
     quantityInCart?: number;
     rating: number;
+    totalRating: number;
     imageUrl: string;
     comments: Comment[];
 }

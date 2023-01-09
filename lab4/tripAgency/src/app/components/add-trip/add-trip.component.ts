@@ -35,6 +35,7 @@ export class AddTripComponent {
       quantityLeft: parseInt(this.quantityLeft),
       description: this.description,
       rating: 0,
+      totalRating: 0,
       imageUrl: this.image,
       comments: []
     }

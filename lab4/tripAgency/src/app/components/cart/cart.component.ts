@@ -13,7 +13,7 @@ export class CartComponent {
   tripsInCart: Trip[] = [];
   
 
-  constructor(private cartService:CartService, private tripService: TripsService){}
+  constructor(public cartService:CartService, private tripService: TripsService){}
 
   ngOnInit(){
     this.tripsInCart = this.cartService.getItems();

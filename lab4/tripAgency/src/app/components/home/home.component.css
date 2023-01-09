@@ -1,5 +1,19 @@
+header{
+    position: relative;
+}
 h1{
     text-align: center;
+    font-size: 40px;
+    position: absolute;
+    top: 40px;
+    left: 40%;
+    color: lightblue;
+}
+
+img{
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
 }
 
 .info-container{
@@ -20,4 +34,10 @@ h1{
 
 .contact-info > div{
     margin: 0 20px;
+}
+
+.contact-info > div > h3{
+    margin-bottom: 10px;
+    font-weight: bold;
+    font-size: 20px;
 }

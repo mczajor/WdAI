@@ -6,7 +6,7 @@ nav{
     align-items: center;
     background-color: lightblue;
     text-decoration: none;
-    border-bottom: 2px solid black;
+    border-bottom: 2px solid rgb(122, 155, 167);
 }
 
 nav div{

@@ -11,9 +11,9 @@
         </div>
         <hr>
         <div class="total">
-            <h3>Total: lkjasdflkj</h3>
-            <button class="buy"
-            (click)="buyAll()">Buy Now</button>
+            <h2>Total: {{ this.cartService.total | currency: "USD" }}</h2>
+            <div class="buy button"
+            (click)="buyAll()">Buy All</div>
         </div>
 
     <div class="empty"

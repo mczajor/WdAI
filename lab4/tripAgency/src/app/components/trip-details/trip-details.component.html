@@ -3,15 +3,30 @@
         <img src="{{trip.imageUrl}}" alt="Image not Found">
     </div>
     <div class="description">
-        {{trip.destination | uppercase}}
-        {{trip.country}}
+        <div class="destination">
+            <div class="destination-content">
+                {{trip.destination | uppercase}}
+                {{trip.country}}
+            </div>
+            <div class="rating">
+                <app-rating
+                [rating] = "trip.rating"
+                (ratingUpdated)="onRatingChanged($event)">
+                </app-rating>
+                {{trip.rating | number}}/5
+                ({{trip.totalRating}})
+            </div>
+        </div>
         <div class="dates"> 
             {{trip.startDate}} - {{trip.endDate}}
         </div>
         <div class="price">
             {{trip.price | currency:'USD' }}
         </div>
-        {{trip.description}}
+        <div class="description-content">
+            {{trip.description}}
+        </div>
+        
     </div>
     <div class="comments-container">
         <form class="comment-form" action="comment-form" #commentForm="ngForm" (ngSubmit)="onSubmit()">

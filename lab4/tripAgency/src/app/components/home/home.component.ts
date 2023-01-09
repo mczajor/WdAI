@@ -6,6 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
-  lat = 51.678418;
-  lng = 7.809007;
+  center: google.maps.LatLngLiteral = {lat: 32.0853, lng: 34.7818};
+  
 }
